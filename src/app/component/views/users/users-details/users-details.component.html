@@ -1,0 +1,100 @@
+<div class="row">
+    <ng-container *ngFor="let permission of action.actionPerm">
+        <div class="col-md-3" *ngIf="status == 2 && permission.details[0].name == 'activate user'"><button class="btn bg-gradient-info btn-lg w-100" (click)="activateUser(userDetails.userId)" data-bs-toggle="modal" data-bs-target="#activate"><i class="fal fa-user-check fa-lg"></i> Activate</button></div>
+        <div class="col-md-3" *ngIf="status == 1 && permission.details[0].name == 'deactivate user'"><button class="btn bg-gradient-danger btn-lg w-100" (click)="deactivateUser(userDetails.userId)" data-bs-toggle="modal" data-bs-target="#deactivate"><i class="fal fa-ban fa-lg"></i> Deactivate</button></div>
+        <div class="col-md-3" *ngIf="permission.details[0].name == 'reset password'"><button class="btn bg-gradient-success btn-lg w-100" (click)="resetPassword(userDetails.email)" data-bs-toggle="modal" data-bs-target="#resetPassword"><i class="fal fa-unlock-alt fa-lg"></i> Reset Pass..</button></div>
+        <div class="col-md-3" *ngIf="permission.details[0].name == 'delete user'"><button class="btn bg-gradient-danger btn-lg w-100" data-bs-toggle="modal" data-bs-target="#deleteUser"><i class="fal fa-trash-alt fa-lg"></i> Delete</button></div>
+        <div class="col-md-3" *ngIf="permission.details[0].name == 'edit user'"><a href="edit-users/{{userDetails.userId}}/{{sub_moduleId}}" class="btn bg-gradient-dark btn-lg w-100"><i class="fal fa-user-edit fa-lg"></i> Edit Info</a></div>
+    </ng-container>
+</div>
+<hr>
+<div class="row">
+    <div class="col-md-4">
+        <div class="d-flex justify-content-center">
+            <img src="../assets/img/curved-images/user2.jpg" alt="img-blur-shadow" class="img-fluid border-radius-xl">
+        </div>
+        <br>
+    </div>
+    <div class="col-md-8">
+        <b>Full Name</b>:&nbsp;{{fullname}}<br> <b>Phone</b>:&nbsp;+255 {{user?.user?.phone}}<br> <b>Email</b>:&nbsp;{{user?.user?.email}} <br> <b>Profile</b>: &nbsp;{{profilename}} <br><b>Office</b>:&nbsp;{{userOffice}} <br> <b>Role(s)</b>:
+        <ng-container *ngFor="let role of user_roles">
+            <ng-container *ngFor="let roleName of role.roleId">{{roleName.name}},&nbsp;</ng-container>
+        </ng-container> <br>
+        <b>Status</b>:&nbsp;
+        <span class="badge bg-gradient-success" *ngIf="status == 1">Active</span>
+        <span class="badge bg-gradient-danger" *ngIf="status == 2">Inactive</span>
+        <span class="badge bg-gradient-danger" *ngIf="status == 90">Password Reset</span>
+        <span class="badge bg-gradient-primary" *ngIf="status == 909">Unactivated</span>
+        <hr>
+        <b>Zone</b>:&nbsp;{{userCourt?.court?.zone?.name}}<br> <b>Region</b>:&nbsp;{{userRegion?.name}}<br> <b>District</b>:&nbsp;{{userCourt?.court?.district?.name}}<br> <b>Court Level</b>:&nbsp;{{userCourt?.court?.court_level?.name}} <br> <b>Court Name</b>:&nbsp;{{userCourt?.court?.name}}
+        <br>
+    </div>
+
+</div>
+
+
+
+<div class="modal fade" id="resetPassword" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-body text-center" style="margin-top: 10%;">
+                <i class="fal fa-check-circle fa-7x" style="color: rgb(129, 221, 175);"></i>
+                <h4 style="margin-top: 3%;">Success..! Password Reset</h4>
+            </div>
+
+            <div class="modal-footer">
+                <button class="btn bg-gradient-primary align-items-center" style="margin-right:40% ;" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="activate" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-body text-center" style="margin-top: 10%;">
+                <i class="fal fa-check-circle fa-7x" style="color: rgb(129, 221, 175);"></i>
+                <h4 style="margin-top: 3%;">Success..! User Activated</h4>
+            </div>
+
+            <div class="modal-footer">
+                <button class="btn bg-gradient-primary align-items-center" style="margin-right:40% ;" (click)="reloadPage()">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="modal fade" id="deactivate" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-body text-center" style="margin-top: 10%;">
+                <i class="fal fa-check-circle fa-7x" style="color: rgb(129, 221, 175);"></i>
+                <h4 style="margin-top: 3%;">Success..! User Deactivated</h4>
+            </div>
+
+            <div class="modal-footer">
+                <button class="btn bg-gradient-primary align-items-center" style="margin-right:40% ;" (click)="reloadPage()">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="modal fade" id="deleteUser" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header ">
+
+                <button type="button" class="btn-close text-dark fa-lg" data-bs-dismiss="modal" aria-label="Close"><i class="fal fa-times"></i></button>
+            </div>
+            <div class="modal-body text-center">
+                <i>Are you sure you want to delete  <b>{{fullname}}</b>?</i>
+            </div>
+
+            <div class="modal-footer">
+                <button class="btn bg-gradient-danger align-items-center" (click)="deleteUser(userDetails.userId)" data-bs-dismiss="modal" style="margin-right: 37%;"><i class="fal fa-trash-alt fa-lg"></i> Yes Delete</button>
+            </div>
+        </div>
+    </div>
+</div>

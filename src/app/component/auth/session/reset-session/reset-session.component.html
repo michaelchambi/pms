@@ -1,0 +1,46 @@
+<div class="row">
+    <div class="col-md-3"></div>
+    <div class="col-md-6">
+        <div class="row mt-4">
+            <div class="col-lg-12 mb-lg-0 mb-4">
+                <div class="card">
+                    <div class="card-body p-3">
+                        <div class="row">
+                            <div class="col-lg-8">
+
+                                <div *ngIf="alert" class="text-center text-danger">
+                                    <strong>Error!</strong> {{message}}
+                                </div>
+
+                                <p class="text-center text-bold">{{labelEmail}}.</p>
+                                <form (ngSubmit)="SessionRestore()" #resetForm=ngForm>
+                                    <input type="password" class="form-control" [(ngModel)]="data.password" name="password" placeholder="Password" aria-label="Password" aria-describedby="password-addon" required>
+
+                                    <div class="text-center">
+                                        <button *ngIf="bfrestore" type="submit" class="btn bg-gradient-danger w-100 mt-4 mb-0" [disabled]="!resetForm.valid">Restore Session</button>
+
+                                        <button *ngIf="restore" class="btn bg-gradient-danger w-100 mt-4 mb-0" type="button" disabled>
+                                                <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                                                Restoring ...
+                                              </button>
+                                    </div>
+
+                                </form>
+
+                            </div>
+                            <div class="col-lg-4 ms-auto text-center mt-5 mt-lg-0">
+                                <div class="bg-gradient-default border-radius-lg h-100">
+                                    <b>Session Time Out</b>
+                                    <div class="position-relative d-flex align-items-center justify-content-center h-100">
+                                        <i class="fal fa-lock-alt fa-5x"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3"></div>
+</div>

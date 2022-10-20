@@ -1,0 +1,36 @@
+<div class="main-content position-relative bg-gray-100 max-height-vh-100 h-100">
+  <app-navbar></app-navbar>
+  <div class="row">
+    <ng-container *ngIf="token != 0">
+      <div class="sidebar-part">
+        <app-sidebar></app-sidebar>
+      </div>
+
+      <div class="main-body">
+        <div class="card">
+          <div class="card-header">
+            <div class="row">
+              <div class="col-md-12">
+                <!-- <h6 class="mb-0">Admin Dashboard</h6> -->
+              </div>
+            </div>
+          </div>
+          <div class="card-body">
+            <div class="text-center" style="margin-top: 10%; margin-bottom: 10%">
+              <h1 class="text-secondary"><i class="fad fa-check-circle" style="color: rgb(131, 255, 127)"></i> Welcome..!</h1>
+              <h3 class="text-secondary">Project Management System |ePMS</h3>
+            </div>
+          </div>
+        </div>
+      </div>
+    </ng-container>
+
+    <ng-container *ngIf="token == 0">
+      <app-reset-session></app-reset-session>
+    </ng-container>
+  </div>
+ 
+</div>
+<app-footer></app-footer>
+<!-- PROFILE MODAL -->
+<app-logout></app-logout>

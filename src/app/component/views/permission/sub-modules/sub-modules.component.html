@@ -1,0 +1,119 @@
+<ng-container *ngIf="this.variable.appSuccess">
+    <div class="alert alert-success alert-dismissible fade show text-white" role="alert">
+        <span class="alert-icon"><i class="fal fa-check-circle fa-lg"></i></span>&nbsp;
+        <span class="alert-text"><strong>Success!</strong> {{variable.successMessage}}</span>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+    </div>
+</ng-container>
+
+<ng-container *ngFor="let permission of subaction.actionPerm">
+    <a *ngIf="permission?.details[0]?.name == 'add sub-module'" href="add-sub-module/{{moduleId}}/{{subModuleId}}" class="btn bg-gradient-primary"><i class="fal fa-plus fa-lg"></i> Add Sub Module</a>
+</ng-container>
+
+<ng-container *ngIf="variable.deleteUser">
+    <div class="alert alert-success alert-dismissible fade show text-white" role="alert">
+        <span class="alert-icon"><i class="fal fa-check-circle fa-lg"></i></span>&nbsp;
+        <span class="alert-text"><strong>Success!</strong> User Deleted</span>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+    </div>
+</ng-container>
+
+<div class="row">
+    <div class="col-md-6"></div>
+
+    <div class="col-md-6">
+        <div class="col-md-1"></div>
+        <input type="search" class="form-control" name="search" [(ngModel)]="searchText" autocomplete="on" placeholder="Search" />
+    </div>
+</div>
+<div class="table-responsive p-0">
+
+    <table class="table table-hover align-items-center mb-0">
+        <thead>
+            <tr>
+                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">#</th>
+                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Name</th>
+                <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Status</th>
+                <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            <tr *ngFor="let submodule of subModuleList | filter:searchText | paginate:{itemsPerPage: 10, currentPage: p}; let i = index ">
+                <td class="text-secondary font-weight text-xs">{{i+1}}</td>
+                <td class="font-weight-bold">{{submodule.name}}</td>
+                <td class="align-middle text-center text-sm">
+                    <span *ngIf="submodule.status == 1" class="badge badge-sm bg-gradient-success">Active</span>
+                    <span *ngIf="submodule.status == 2" class="badge badge-sm bg-gradient-danger">Inactive</span>
+                </td>
+                <td class="align-middle text-center">
+                    <ng-container *ngFor="let permission of subaction.actionPerm">
+                        <a *ngIf="permission?.details[0]?.name == 'edit sub-module'" href="edit-sub-module/{{submodule.id}}/{{subModuleId}}" class="text-info font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Edit Sub Module"> Edit </a>                        &nbsp;
+                        <a *ngIf="submodule.status == 1 && permission?.details[0]?.name == 'deactivate sub-module'" href="#deactivateSubModule{{submodule.id}}" class="text-success font-weight-bold text-xs" data-bs-toggle="modal"> Deactivate</a>
+                        <a *ngIf="submodule.status == 2 && permission?.details[0]?.name == 'activate sub-module' " href="#activateSubModule{{submodule.id}}" class="text-primary font-weight-bold text-xs" data-bs-toggle="modal"> Activate</a>
+                    </ng-container>
+                    <a href="sub-module-action/{{submodule.id}}/{{subModuleId}}" class="text-secondary font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Sub Module"> Sub Module Action</a>
+                </td>
+
+                <!-- DEACTIVATE MODULE -->
+                <div class="modal fade" id="deactivateSubModule{{submodule.id}}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header justify-content-end">
+                                <button *ngIf="action" type="button" class="btn btn-link text-primary ml-auto " data-bs-dismiss="modal">Close</button>
+                                <!-- <button type="button" class="btn-close text-dark fa-lg" data-bs-dismiss="modal" aria-label="Close"><i class="fal fa-times"></i></button> -->
+                            </div>
+                            <div class="modal-body text-center">
+                                <i *ngIf="action">Are you sure you want to deactivate <b>{{submodule.name}}</b>?</i>
+                                <i *ngIf="close"><b>{{submodule.name}}</b> successful deactivated</i>
+                                <i *ngIf="close" class="text-success"><br><br><i class="fal fa-check-circle fa-4x"></i></i>
+                                <i *ngIf="actionError"><b>{{message}}</b></i>
+                                <i *ngIf="actionError" class="text-danger"><br><br><i class="fal fa-times-circle fa-4x"></i></i>
+                            </div>
+
+                            <div class="modal-footer d-flex justify-content-center mb-3">
+                                <button *ngIf="action" class="btn bg-gradient-danger" (click)="deactivateSubModule(submodule.id)">Yes Deactivate</button>
+                                <button *ngIf="close" class="btn bg-gradient-danger" data-bs-dismiss="modal" (click)="reloadPage()">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- /DEACTIVATE MODULE -->
+
+                <!-- ACTIVATE MODULE -->
+                <div class="modal fade" id="activateSubModule{{submodule.id}}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header justify-content-end">
+                                <button *ngIf="action" type="button" class="btn btn-link text-primary ml-auto " data-bs-dismiss="modal">Close</button>
+                            </div>
+                            <div class="modal-body text-center">
+                                <i *ngIf="action">Are you sure you want to activate <b>{{submodule.name}}</b>?</i>
+                                <i *ngIf="close"><b>{{submodule.name}}</b> successful activated</i>
+                                <i *ngIf="close" class="text-success"><br><br><i class="fal fa-check-circle fa-4x"></i></i>
+                                <i *ngIf="actionError"><b>{{message}}</b></i>
+                                <i *ngIf="actionError" class="text-danger"><br><br><i class="fal fa-times-circle fa-4x"></i></i>
+                            </div>
+
+                            <div class="modal-footer d-flex justify-content-center mb-3">
+                                <button *ngIf="action" class="btn bg-gradient-danger" (click)="activateSubModule(submodule.id)">Yes Activate</button>
+                                <button *ngIf="close" class="btn bg-gradient-danger" data-bs-dismiss="modal" (click)="reloadPage()">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- /ACTIVATE MODULE -->
+
+
+            </tr>
+
+
+        </tbody>
+    </table>
+    <hr>
+    <pagination-controls (pageChange)="p = $event" class="my-pagination"></pagination-controls>
+</div>

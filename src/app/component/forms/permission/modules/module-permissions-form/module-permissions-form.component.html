@@ -1,0 +1,59 @@
+<!-- PERMISSIONS BLOCK -->
+<form (ngSubmit)="updatePermission()" #permissionForm="ngForm">
+  <div class="row">
+    <ng-container *ngFor="let module of modules">
+      <div class="col-12 col-xl-12">
+        <div class="card shadow-lg rounded">
+          <div class="card-header shadow-lg rounded row">
+            <div class="col-12 col-xl-6">
+              <h6 class="mb-0">{{ module.name }}</h6>
+            </div>
+
+            <div class="col-12 col-xl-6">
+              <div class="form-check form-switch ps-0">
+                <input class="form-check-input ms-auto" type="checkbox" id="module_checkbox_{{ module.id }}" (change)="moduleChangeCheck($event, module)" [attr.checked]="module.checked" />
+              </div>
+            </div>
+          </div>
+
+          <div class="card-body">
+            <ng-container *ngFor="let submodule of module.pms_sub_modules">
+              <hr class="dashed" />
+              <div class="row">
+                <div class="col-12 col-xl-6">
+                  <h6 class="text-uppercase text-body text-xs font-weight-bolder">{{ submodule.name }}</h6>
+                </div>
+
+                <div class="col-12 col-xl-6">
+                  <div class="form-check form-switch ps-0">
+                    <input class="form-check-input ms-auto" type="checkbox" id="submodule_checkbox_{{ submodule.id }}" (change)="subModuleChangeCheck($event, submodule)" [attr.checked]="submodule.checked" />
+                  </div>
+                </div>
+              </div>
+              <hr />
+
+              <div class="row">
+                <ng-container *ngFor="let action of submodule.pms_sub_module_actions">
+                  <div class="col-sm-6 col-md-4" *ngIf="action.sub_moduleId == submodule.id">
+                    <div class="form-check form-switch">
+                      <input class="form-check-input ms-auto" type="checkbox" id="action_checkbox_{{ action.id }}" (change)="actionChangeCheck($event, action)" [attr.checked]="action.checked" />
+                      <label class="form-check-label text-body ms-3 text-truncate mb-0" for="action_checkbox_{{ action.id }}">{{ action.name }}</label>
+                    </div>
+                  </div>
+                </ng-container>
+              </div>
+            </ng-container>
+          </div>
+        </div>
+        &nbsp;&nbsp;
+      </div>
+    </ng-container>
+  </div>
+
+  <div class="text-center">
+    <button *ngIf="variable.bfrcreating" type="submit" class="btn bg-gradient-danger w-80 mt-4 mb-0" [disabled]="!permissionForm.valid">Update Permission</button>
+    <button *ngIf="variable.creating" class="btn bg-gradient-danger w-80 mt-4 mb-0" type="button" disabled><span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Updating...</button>
+  </div>
+  <br />
+</form>
+<!-- /PERMISSIONS BLOCK -->

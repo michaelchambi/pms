@@ -1,0 +1,37 @@
+<main class="main-content  mt-0">
+    <section>
+        <div class="page-header min-vh-50">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-4 col-lg-5 col-md-12 d-flex flex-column mx-auto">
+                        <div class="card card-plain mt-8">
+                            <div class="card-header pb-0 text-left bg-transparent">
+                                
+                                <app-app-info></app-app-info>
+                                <div *ngIf="variable.loginErrorAlert" class="alert alert-primary text-white text-center" role="alert">
+                                    <strong>Error!</strong> {{variable.loginErrorMesssage}}
+                                </div>
+
+                                <p *ngIf="variable.title" class="mb-0">Enter your code to activate account</p>
+                                <p *ngIf="variable.activate" class="d-flex justify-content-center mb-0 ">Check your email to reset password</p>
+
+                            </div>
+
+                            <div class="text-center">
+                                <a *ngIf="variable.activate" href="login" class="btn bg-gradient-danger w-100 mt-4 mb-0">Home</a>
+
+                            </div>
+
+                            <div *ngIf="variable.title" class="card-body">
+
+                                <app-activate-account-form></app-activate-account-form>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+<app-footer></app-footer>

@@ -1,0 +1,49 @@
+<div class="responsive p-0">
+    <ng-container *ngIf="variable.appError">
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            <span class="alert-icon"><i class="fal fa-exclamation-triangle fa-lg"></i></span>&nbsp;
+            <span class="alert-text text-white"><strong>Error!</strong> {{messageError}}</span>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+    </ng-container>
+
+    <form (ngSubmit)="addConfiguration()" #appForm=ngForm>
+        <div class="row">
+            <div class="col-xl-6 col-lg-6 col-md-12">
+                <label>Application Name </label>
+                <input type="text" class="form-control" [(ngModel)]="data.name" name="application" placeholder="Application Name" aria-label="Application" aria-describedby="application-addon" required>
+            </div>
+
+            <div class="col-xl-6 col-lg-6 col-md-12">
+                <label>Institution Name </label>
+                <input type="text" class="form-control" [(ngModel)]="data.institution" name="institution" placeholder="Institution Name" aria-label="Institution" aria-describedby="institution-addon" required>
+            </div>
+
+            <div class="col-xl-6 col-lg-6 col-md-12">
+                <label>Institution Website </label>
+                <input type="text" class="form-control" [(ngModel)]="data.website" name="website" placeholder="Website" aria-label="Website" aria-describedby="website-addon" required>
+            </div>
+
+            <div class="col-xl-6 col-lg-6 col-md-12">
+                <label>Institution Logo </label>
+                <input type="file" class="form-control" [(ngModel)]="data.logo" name="logo" placeholder="Logo" aria-label="Logo" aria-describedby="logo-addon" (change)=" logoUpload($event)" required>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-xl-4 col-lg-4 col-md-12 d-flex flex-column mx-auto">
+                <div class="text-center">
+                    <button *ngIf="variable.bfrcreating" type="submit" class="btn bg-gradient-danger w-100 mt-4 mb-0" [disabled]="!appForm.valid">Add Config</button>
+
+                    <button *ngIf="variable.creating" class="btn bg-gradient-danger w-100 mt-4 mb-0" type="button" disabled>
+                    <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                    Adding...
+                  </button>
+                </div>
+            </div>
+        </div>
+
+    </form>
+</div>

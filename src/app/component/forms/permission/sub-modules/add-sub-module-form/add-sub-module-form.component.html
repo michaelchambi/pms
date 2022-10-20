@@ -1,0 +1,50 @@
+<div class="responsive p-0">
+    <ng-container *ngIf="variable.appError">
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            <span class="alert-icon"><i class="fal fa-exclamation-triangle fa-lg"></i></span>&nbsp;
+            <span class="alert-text text-white"><strong>Error!</strong> {{messageError}}</span>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+        </div>
+    </ng-container>
+
+    <form (ngSubmit)="addSubModule()" #submoduleForm=ngForm>
+        <div class="row">
+            <div class="col-xl-3 col-lg-3 col-md-12 d-flex flex-column mx-auto">
+                <label>Submodule </label>
+                <div class="mb-3">
+                    <input type="text" class="form-control" [(ngModel)]="data.name" name="name" placeholder="Profile" aria-label="Profile" aria-describedby="submodule-addon" required>
+                </div>
+
+            </div>
+
+            <div class="col-xl-3 col-lg-3 col-md-12 d-flex flex-column mx-auto">
+                <label>Link </label>
+                <div class="mb-3">
+                    <input type="text" class="form-control" [(ngModel)]="data.link" name="link" placeholder="view-submodule" aria-label="Link" aria-describedby="link-addon" required>
+                </div>
+
+            </div>
+
+            <div class="col-xl-3 col-lg-3 col-md-12 d-flex flex-column mx-auto">
+                <label>Icon </label>
+                <div class="mb-3">
+                    <input type="text" class="form-control" [(ngModel)]="data.icon" name="icon" placeholder="fal fa-user" aria-label="Icon" aria-describedby="icon-addon" required>
+                </div>
+
+            </div>
+
+            <div class="col-xl-3 col-lg-3 col-md-12 d-flex flex-column mx-auto">
+                <div class="text-center">
+                    <button *ngIf="variable.bfrcreating" type="submit" class="btn bg-gradient-danger w-100 mt-4 mb-0" [disabled]="!submoduleForm.valid">Add Sub Module</button>
+
+                    <button *ngIf="variable.creating" class="btn bg-gradient-danger w-100 mt-4 mb-0" type="button" disabled>
+                    <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                    Adding...
+                  </button>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

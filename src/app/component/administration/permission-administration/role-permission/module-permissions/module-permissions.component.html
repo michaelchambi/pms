@@ -1,0 +1,62 @@
+<div class="main-content position-relative bg-gray-100 max-height-vh-100 h-100">
+
+    <app-navbar></app-navbar>
+    <div class="row">
+
+
+        <ng-container *ngIf="token != 0">
+            <div class="col-12 col-xl-3">
+                <app-sidebar></app-sidebar>
+            </div>
+
+            <div class="col-12 col-xl-9">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="row">
+                            <div class="col-md-12">
+
+                                <ng-container *ngIf="this.variable.appSuccess">
+                                    <div class="alert alert-success alert-dismissible fade show text-white" role="alert">
+                                        <span class="alert-icon"><i class="fal fa-check-circle fa-lg"></i></span>&nbsp;
+                                        <span class="alert-text"><strong>Success!</strong> {{variable.successMessage}}</span>
+                                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                    </div>
+                                </ng-container>
+
+                                <ng-container *ngIf="variable.appError">
+                                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                        <span class="alert-icon"><i class="fal fa-exclamation-triangle fa-lg"></i></span>&nbsp;
+                                        <span class="alert-text text-white"><strong>Error!</strong> {{variable.errorMessage}}</span>
+                                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                    </div>
+                                </ng-container>
+
+                                <h6 class="mb-0">Update {{name}} Permission(s)</h6>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <!-- content start here -->
+                        <app-module-permissions-form></app-module-permissions-form>
+                        <!-- content ends here -->
+                    </div>
+                </div>
+            </div>
+        </ng-container>
+
+        <ng-container *ngIf="token == 0">
+            <app-reset-session></app-reset-session>
+        </ng-container>
+
+    </div>
+
+</div>
+
+
+<app-footer></app-footer>
+<!-- PROFILE MODAL -->
+<app-logout></app-logout>

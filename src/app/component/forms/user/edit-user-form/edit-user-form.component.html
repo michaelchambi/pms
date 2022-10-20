@@ -1,0 +1,88 @@
+<div class="responsive p-0">
+    <form (ngSubmit)="editUser()" #editUserForm=ngForm>
+        <div class="row">
+            <div class="col-md-6">
+                <label>First Name</label>
+                <div class="form-group">
+                    <input type="text" class="form-control" id="firstname" [(ngModel)]="user.user.firstname" name="firstname" placeholder="First Name" required>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <label>Last Name</label>
+                <div class="form-group">
+                    <input type="text" class="form-control" id="lastname" [(ngModel)]="user.user.lastname" name="lastname" placeholder="Last Name" required>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <label>Email</label>
+                <div class="form-group">
+                    <input type="email" class="form-control" id="email" [(ngModel)]="user.user.email" name="email" placeholder="email@judiciary.go.tz" email required>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <label>Phone</label>
+                <div class="form-group">
+                    <div class="input-group mb-4">
+                        <span class="input-group-text">+255</span>
+                        <input type="text" class="form-control" id="phone" [(ngModel)]="user.user.phone" name="phone" data-mask="999 999 999" placeholder="712 xxx xxx" maxlength="9" minlength="9" required>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <label>Office Name</label>
+                <div class="form-group">
+                    <ng-select [items]="courts" [multiple]="false" [closeOnSelect]="true" [searchable]="true" bindValue="id" bindLabel="name" [(ngModel)]="user_profile.courtId" [ngModelOptions]="{standalone: true}" placeholder="Select Courts">
+                    </ng-select>
+
+                </div>
+            </div>
+            <div class="col-md-6">
+                <label>Profile</label>
+                <div class="form-group">
+                    <ng-select [items]="profiles" [multiple]="false" [closeOnSelect]="true" [searchable]="true" bindValue="id" bindLabel="name" [(ngModel)]="user_profile.profileId" [ngModelOptions]="{standalone: true}" placeholder="Select Profile">
+                    </ng-select>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6">
+                <label>Room Name</label>
+                <div class="form-group">
+                    <ng-select [items]="offices" [multiple]="false" [closeOnSelect]="true" [searchable]="true" bindValue="id" bindLabel="name" [(ngModel)]="user_profile.roomId" [ngModelOptions]="{standalone: true}" placeholder="Select Office">
+                    </ng-select>
+
+                </div>
+            </div>
+            <div class="col-md-6">
+                <label>Role(s)</label>
+                <div class="form-group">
+
+                    <ng-select [items]="user_roles" [multiple]="true" [closeOnSelect]="true" [searchable]="true" bindValue="id" bindLabel="name" [(ngModel)]="rolesuser" [ngModelOptions]="{standalone: true}" placeholder="Select Role(s)">
+                    </ng-select>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6">
+            </div>
+            <div class="col-md-6">
+                <button *ngIf="variable.bfrcreating" type="submit" class="btn bg-gradient-primary btn-lg w-100" [disabled]="!editUserForm.valid"> Edit user</button>
+                <button *ngIf="variable.creating" class="btn bg-gradient-primary btn-lg w-100" type="button" disabled>
+                    <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                    User editing...
+                  </button>
+            </div>
+
+        </div>
+
+
+    </form>
+</div>

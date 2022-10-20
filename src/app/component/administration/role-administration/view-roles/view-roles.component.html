@@ -1,0 +1,41 @@
+<div class="main-content position-relative bg-gray-100 max-height-vh-100 h-100">
+
+    <app-navbar></app-navbar>
+    <div class="row">
+
+
+        <ng-container *ngIf="token != 0">
+            <div class="col-12 col-xl-3">
+                <app-sidebar></app-sidebar>
+            </div>
+
+            <div class="col-12 col-xl-9">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <h6 class="mb-0">Roles</h6>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <!-- content start here -->
+                        <app-roles></app-roles>
+                        <!-- content ends here -->
+                    </div>
+                </div>
+            </div>
+        </ng-container>
+
+        <ng-container *ngIf="token == 0">
+            <app-reset-session></app-reset-session>
+        </ng-container>
+
+    </div>
+
+</div>
+
+
+<app-footer></app-footer>
+<!-- PROFILE MODAL -->
+<app-logout></app-logout>

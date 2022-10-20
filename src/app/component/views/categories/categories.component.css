@@ -1,0 +1,11 @@
+@media screen and (min-width: 991px) {
+
+  .my-pagination /deep/ .ngx-pagination .current {
+    background: linear-gradient(310deg, #7928ca, #ff0080);
+    border-radius: 40px;
+  }
+  .image-icon{
+    width:3rem; height:3rem;
+  }
+
+}	

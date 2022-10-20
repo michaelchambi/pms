@@ -1,0 +1,153 @@
+<ng-container *ngIf="this.variable.appSuccess">
+    <div class="alert alert-success alert-dismissible fade show text-white" role="alert">
+        <span class="alert-icon"><i class="fal fa-check-circle fa-lg"></i></span>&nbsp;
+        <span class="alert-text"><strong>Success!</strong> {{variable.successMessage}}</span>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+    </div>
+</ng-container>
+
+<ng-container *ngFor="let permission of subaction.actionPerm">
+    <a *ngIf="permission?.details[0]?.name == 'add room'" href="add-room/{{sub_moduleId}}" class="btn bg-gradient-primary"><i class="fal fa-plus fa-lg"></i> Add Room</a>
+</ng-container>
+
+
+<ng-container *ngIf="variable.deleteUser">
+    <div class="alert alert-success alert-dismissible fade show text-white" role="alert">
+        <span class="alert-icon"><i class="fal fa-check-circle fa-lg"></i></span>&nbsp;
+        <span class="alert-text"><strong>Success!</strong> User Deleted</span>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+    </div>
+</ng-container>
+
+<div class="row">
+    <div class="col-md-6"></div>
+
+    <div class="col-md-6">
+        <div class="col-md-1"></div>
+        <input type="search" class="form-control" name="search" [(ngModel)]="searchText" autocomplete="on" placeholder="Search" />
+    </div>
+</div>
+<div class="table-responsive p-0">
+
+    <table class="table table-hover align-items-center mb-0">
+        <thead>
+            <tr>
+                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ">#</th>
+                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Name</th>
+                <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Status</th>
+                <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            <tr *ngFor="let room of roomList | filter:searchText | paginate:{itemsPerPage: 10, currentPage: p}; let i = index ">
+                <td class="text-secondary font-weight text-xs ">{{i+1}}</td>
+                <td class="font-weight-bold">{{room.name}}</td>
+                <td class="align-middle text-center text-sm">
+                    <span *ngIf="room.status == 1" class="badge badge-sm bg-gradient-success">Active</span>
+                    <span *ngIf="room.status == 2" class="badge badge-sm bg-gradient-danger">Inactive</span>
+                </td>
+                <td class="align-middle text-center">
+                    <ng-container *ngFor="let permission of subaction.actionPerm">
+                        <a *ngIf="permission?.details[0]?.name == 'edit room'" href="edit-room/{{room.id}}/{{sub_moduleId}}" class="text-info font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Edit Profile"> Edit </a> &nbsp; &nbsp;
+                        <a *ngIf="room.status == 1 && permission?.details[0]?.name == 'deactivate room'" href="#deactivateRoom{{room.id}}" class="text-success font-weight-bold text-xs" data-bs-toggle="modal"> Deactivate</a>&nbsp; &nbsp;
+                        <a *ngIf="room.status == 2 && permission?.details[0]?.name == 'activate room'" href="#activateRoom{{room.id}}" class="text-primary font-weight-bold text-xs" data-bs-toggle="modal"> Activate</a>&nbsp; &nbsp;
+                        <a *ngIf="permission?.details[0]?.name == 'delete room'" href="#deleteRoom{{room.id}}" class="text-danger font-weight-bold text-xs" data-bs-toggle="modal"> Delete</a>
+                    </ng-container>
+                </td>
+
+
+
+                <!-- DEACTIVATE PROFILE -->
+                <div class="modal fade" id="deactivateRoom{{room.id}}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header justify-content-end">
+                                <button *ngIf="action" type="button" class="btn btn-link text-primary ml-auto " data-bs-dismiss="modal">Close</button>
+                            </div>
+                            <div class="modal-body text-center">
+                                <i *ngIf="action">Are you sure you want to deactivate <b>{{room.name}}</b>?</i>
+                                <i *ngIf="close"><b>{{room.name}}</b> successful deactivated</i>
+                                <i *ngIf="close" class="text-success"><br><br><i class="fal fa-check-circle fa-4x"></i></i>
+                                <i *ngIf="actionError"><b>{{message}}</b></i>
+                                <i *ngIf="actionError" class="text-danger"><br><br><i class="fal fa-times-circle fa-4x"></i></i>
+                            </div>
+
+                            <div class="modal-footer d-flex justify-content-center mb-3">
+                                <button *ngIf="action" class="btn bg-gradient-danger" (click)="deactivateRoom(room.id)">Yes Deactivate</button>
+                                <button *ngIf="close" class="btn bg-gradient-danger" data-bs-dismiss="modal" (click)="reloadPage()">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- /DEACTIVATE PROFILE -->
+
+                <!-- ACTIVATE PROFILE -->
+                <div class="modal fade" id="activateRoom{{room.id}}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header justify-content-end">
+                                <button *ngIf="action" type="button" class="btn btn-link text-primary ml-auto " data-bs-dismiss="modal">Close</button>
+                            </div>
+                            <div class="modal-body text-center">
+                                <i *ngIf="action">Are you sure you want to activate <b>{{room.name}}</b>?</i>
+                                <i *ngIf="close"><b>{{room.name}}</b> successful activated</i>
+                                <i *ngIf="close" class="text-success"><br><br><i class="fal fa-check-circle fa-4x"></i></i>
+                                <i *ngIf="actionError"><b>{{message}}</b></i>
+                                <i *ngIf="actionError" class="text-danger"><br><br><i class="fal fa-times-circle fa-4x"></i></i>
+
+                            </div>
+
+                            <div class="modal-footer d-flex justify-content-center mb-3">
+                                <button *ngIf="action" class="btn bg-gradient-danger" (click)="activateRoom(room.id)">Yes Activate</button>
+                                <button *ngIf="close" class="btn bg-gradient-danger" data-bs-dismiss="modal" (click)="reloadPage()">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- /ACTIVATE PROFILE -->
+
+
+                <!-- DELETE PROFILE -->
+                <div class="modal fade" id="deleteRoom{{room.id}}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header justify-content-end">
+                                <button *ngIf="action" type="button" class="btn btn-link text-primary ml-auto " data-bs-dismiss="modal">Close</button>
+                            </div>
+                            <div class="modal-body text-center">
+                                <i *ngIf="action">Are you sure you want to delete <b>{{room.name}}</b>?</i>
+                                <i *ngIf="close"><b>{{room.name}}</b> successful deleted</i>
+                                <i *ngIf="close" class="text-success"><br><br><i class="fal fa-check-circle fa-4x"></i></i>
+                                <i *ngIf="actionError"><b>{{message}}</b></i>
+                                <i *ngIf="actionError" class="text-danger"><br><br><i class="fal fa-times-circle fa-4x"></i></i>
+                            </div>
+
+                            <div class="modal-footer d-flex justify-content-center mb-3">
+                                <button *ngIf="action" class="btn bg-gradient-danger" (click)="deleteRoom(room.id)">Yes Delete</button>
+                                <button *ngIf="close" class="btn bg-gradient-danger " data-bs-dismiss="modal" (click)="reloadPage()">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- /DELETE PROFILE -->
+
+
+
+
+
+
+
+
+            </tr>
+
+
+        </tbody>
+    </table>
+    <hr>
+    <pagination-controls (pageChange)="p = $event" class="my-pagination"></pagination-controls>
+</div>

@@ -1,0 +1,21 @@
+
+	@media screen and (min-width: 991px) {
+        .card-body{
+            border: 1px solid #f9f9;
+            border: 1px solid #c0c0c0;
+           border-radius: 10px !important; 
+        }
+       
+        .main-body{
+            overflow: hidden;
+        }
+        .card-body-ui{
+           border-radius: 2px !important; 
+        }
+	 .home-title{ 
+        width:80%;
+     }
+     .top-banner{ 
+        height:4rem; background-color:#dc143c; margin-bottom:1rem;
+     }
+	}	

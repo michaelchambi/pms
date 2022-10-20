@@ -1,0 +1,38 @@
+@media screen and (min-width: 991px) {
+    .nav-justified>li {
+        display: table-cell;
+        width: 1%;
+        float: none;
+    }
+
+    .nav>li>a {
+        position: relative;
+        display: block;
+        padding: 10px 15px
+    }
+
+    .nav-pills>li>a {
+        border-radius: 5px
+    }
+
+    .nav-pills>li.active>a,
+    .nav-pills>li.active>a:hover,
+    .nav-pills>li.active>a:focus {
+        color: #fff;
+        background-color: #428bca
+    }
+
+    .thumbnail {
+        display: inline-block;
+        display: block;
+        height: auto;
+        max-width: 100%;
+        padding: 4px;
+        line-height: 1.428571429;
+        background-color: #fff;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        -webkit-transition: all .2s ease-in-out;
+        transition: all .2s ease-in-out
+    }
+}

@@ -1,0 +1,122 @@
+<div class="responsive p-0">
+  <ng-container *ngIf="variable.appError">
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+      <span class="alert-icon"><i class="fal fa-exclamation-triangle fa-lg"></i></span>&nbsp;
+      <span class="alert-text text-white"><strong>Error!</strong> {{ messageError }}</span>
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+  </ng-container>
+
+  <ng-container *ngIf="variable.appSuccess">
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+      <span class="alert-icon"><i class="fal fa-check-circle fa-lg"></i></span>&nbsp;
+      <span class="alert-text text-white"><strong>Success!</strong> {{ variable.successMessage }}</span>
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+  </ng-container>
+
+  <div class="row">
+    <div class="col-md-8">
+      <table class="table table-striped">
+        <tr>
+          <td><b>Project Category Name:</b> &nbsp;{{ data.project_category_name }}</td>
+        </tr>
+
+       
+      </table>
+    </div>
+
+    <div class="col-md-4">
+      <div class="card" style="width: 50%">
+        <div class="card-header z-index-1">
+          <a href="javascript:;">
+            <img src="{{ variable.ITEM_IMAGE_PATH }}/{{ image }}" class="img-fluid border-radius-lg" />
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <hr />
+  <br />
+  <div class="row">
+    <div class="col-md-3">
+      <a (click)="words()" class="btn w-100 bg-gradient-primary active" role="button" aria-pressed="true"> Edit Words</a>
+    </div>
+
+
+    <div class="col-md-3">
+      <a (click)="imageItem()" class="btn w-100 bg-gradient-info active" role="button" aria-pressed="true"> Edit Image</a>
+    </div>
+  </div>
+
+  <ng-container *ngIf="wordForm">
+    <div class="card border">
+      <div class="card-body">
+        <div class="row">
+          <h6 class="mb-0">Edit Words</h6>
+          <br /><br />
+
+          <form (ngSubmit)="editWords()" #serviceForm="ngForm">
+            <div class="row">
+              <div class="col-xl-4 col-lg-4 col-md-12 d-flex flex-column mx-auto">
+                <div class="form-group">
+                  <input type="text" class="form-control" [(ngModel)]="data.project_category_name" name="project_categogy_name" placeholder="Project Category name" aria-label="Module" aria-describedby="module-addon" required />
+                </div>
+              </div>
+              
+              <div class="col-xl-4 col-lg-4 col-md-12 d-flex flex-column mx-auto">
+                <div class="text-center">
+                  <button *ngIf="bfrcreating" type="submit" class="btn bg-gradient-danger w-100" [disabled]="!serviceForm.valid">Edit Words</button>
+
+                  <button *ngIf="creating" class="btn bg-gradient-danger w-100" type="button" disabled>
+                    <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                    Editing...
+                  </button>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+
+  
+
+  
+
+  <ng-container *ngIf="imageForm">
+    <div class="card border">
+      <div class="card-body">
+        <div class="row">
+          <h6 class="mb-0">Edit Image</h6>
+          <br /><br />
+
+          <form (ngSubmit)="editImage()" #imageForm="ngForm">
+            <div class="row">
+              <div class="col-xl-8 col-lg-8 col-md-12 d-flex flex-column mx-auto">
+                <div class="form-group">
+                  <input type="file" class="form-control" [(ngModel)]="data.category_icon" name="category_icon" (change)="imageUpload($event)" required />
+                </div>
+              </div>
+              <div class="col-xl-4 col-lg-4 col-md-12 d-flex flex-column mx-auto">
+                <div class="text-center">
+                  <button *ngIf="bfrcreating" type="submit" class="btn bg-gradient-danger w-100" [disabled]="!imageForm.valid">Edit Image</button>
+
+                  <button *ngIf="creating" class="btn bg-gradient-danger w-100" type="button" disabled>
+                    <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                    Editing...
+                  </button>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+</div>

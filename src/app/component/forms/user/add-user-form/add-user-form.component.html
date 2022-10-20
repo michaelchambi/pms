@@ -1,0 +1,99 @@
+<div class="responsive p-0">
+    <ng-container *ngIf="variable.addUserError">
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            <span class="alert-icon"><i class="fal fa-exclamation-triangle fa-lg"></i></span>&nbsp;
+            <span class="alert-text text-white"><strong>Error!</strong> {{messageError}}</span>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+        </div>
+    </ng-container>
+    <form (ngSubmit)="registerUser()" #userForm=ngForm>
+        <div class="row">
+            <div class="col-md-6">
+                <label>First Name</label>
+                <div class="form-group">
+                    <input type="text" class="form-control" id="firstname" [(ngModel)]="data.firstname" name="firstname" placeholder="First Name" required>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <label>Last Name</label>
+                <div class="form-group">
+                    <input type="text" class="form-control" id="lastname" [(ngModel)]="data.lastname" name="lastname" placeholder="Last Name" required>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <label>Email</label>
+                <div class="form-group">
+                    <input type="email" class="form-control" id="email" [(ngModel)]="data.email" name="email" placeholder="email@judiciary.go.tz" email required>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <label>Phone</label>
+                <div class="form-group">
+                    <div class="input-group mb-4">
+                        <span class="input-group-text">+255</span>
+                        <input type="text" class="form-control" id="phone" [(ngModel)]="data.phone" name="phone" data-mask="999 999 999" placeholder="712 xxx xxx" maxlength="9" minlength="9" required>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <label>Office Name</label>
+                <div class="form-group">
+                    <ng-select placeholder="Select Court" [(ngModel)]="data.courtId" name="courtId" required>
+                        <ng-option value="" disabled Selected>Select Office</ng-option>
+                        <ng-option *ngFor="let court of court.courts" value="{{court.id}}">{{court.name}}</ng-option>
+                    </ng-select>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <label>Profile</label>
+                <div class="form-group">
+                    <ng-select placeholder="Select Designation" [(ngModel)]="data.profileId" name="designation" required>
+                        <ng-option value="" disabled Selected>Select Profile</ng-option>
+                        <ng-option *ngFor="let profile of userProfiles" value="{{profile.id}}">{{profile.name}}</ng-option>
+                    </ng-select>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6">
+                <label>Room Name</label>
+                <div class="form-group">
+                    <ng-select [(ngModel)]="data.officeId" name="office" placeholder="Select Office" required>
+                        <ng-option value="" disabled Selected>Select Room Name</ng-option>
+                        <ng-option *ngFor="let office of userOffice" value="{{office.id}}">{{office.name}}</ng-option>
+                    </ng-select>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <label>Role(s)</label>
+                <div class="form-group">
+                    <ng-select placeholder="Select Role(s)" [(ngModel)]="data.roles" name="roles" [multiple]="true" required>
+                        <ng-option *ngFor="let role of userRole" value="{{role.id}}">{{role.name}}</ng-option>
+                    </ng-select>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6">
+            </div>
+            <div class="col-md-6">
+                <button *ngIf="variable.bfrcreating" type="submit" class="btn bg-gradient-primary btn-lg w-100" [disabled]="!userForm.valid"> Create user</button>
+                <button *ngIf="variable.creating" class="btn bg-gradient-primary btn-lg w-100" type="button" disabled>
+                    <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                    User creating...
+                  </button>
+            </div>
+
+        </div>
+
+
+    </form>
+</div>

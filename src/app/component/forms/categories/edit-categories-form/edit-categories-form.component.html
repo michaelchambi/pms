@@ -1,0 +1,54 @@
+<div class="responsive p-0">
+  <ng-container *ngIf="variable.appError">
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+      <span class="alert-icon"><i class="fal fa-exclamation-triangle fa-lg"></i></span>&nbsp;
+      <span class="alert-text text-white"><strong>Error!</strong> {{ messageError }}</span>
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+  </ng-container>
+
+  <form (ngSubmit)="editCategory()" #moduleForm="ngForm">
+    <div class="row">
+      <div class="col-xl-3 col-lg-3 col-md-12 d-flex flex-column mx-auto">
+        <label>Project Category Name </label>
+        <div class="mb-3">
+          <input type="text" class="form-control" [(ngModel)]="data.project_category_name" name="project_category_name" placeholder="ICT Projects" aria-label="Module" aria-describedby="module-addon" required />
+        </div>
+      </div>
+
+      <div class="col-xl-3 col-lg-3 col-md-12 d-flex flex-column mx-auto">
+        <label>Project Icon </label>
+        <div class="mb-3">
+          <input type="file" class="form-control" name="category_icon"  (change)="logoUpload($event)" />
+        </div>
+      </div>
+
+      <div class="col-xl-3 col-lg-3 col-md-3 d-flex flex-column mx-auto">
+        <div class="card" style="width: 50%">
+          <div class="card-header pt-2 p-0 mx-3 mt-3 position-relative z-index-1">
+            <a href="javascript:;" class="d-block">
+              <img src="{{ variable.CATEGORY_FILE_API }}{{ icon }}" class="img-fluid border-radius-lg" />
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-xl-4 col-lg-4 col-md-12 d-flex flex-column mx-auto"></div>
+        <div class="col-xl-4 col-lg-4 col-md-12 d-flex flex-column mx-auto">
+          <div class="text-center">
+            <button *ngIf="variable.bfrcreating" type="submit" class="btn bg-gradient-danger w-100 mt-4 mb-0" [disabled]="!moduleForm.valid">Edit Category</button>
+
+            <button *ngIf="variable.creating" class="btn bg-gradient-danger w-100 mt-4 mb-0" type="button" disabled>
+              <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+              Editing...
+            </button>
+          </div>
+        </div>
+        <div class="col-xl-4 col-lg-4 col-md-12 d-flex flex-column mx-auto"></div>
+      </div>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,134 @@
+<div class="container">
+  <div class="row form-group">
+    <div class="col-xs-12">
+      <ul class="nav nav-pills nav-justified thumbnail setup-panel">
+        <li class="active"><a href="#step-1">
+            <h5 class="list-group-item-text">Project Details</h5>
+          </a></li>
+        <li class="disabled"><a href="#step-2">
+            <h5 class="list-group-item-text">Scrum Master</h5>
+          </a></li>
+        <li class="disabled"><a href="#step-3">
+            <h5 class="list-group-item-text">Project team</h5>
+          </a></li>
+        <!-- <li class="disabled"><a href="#step-4">
+            <h5 class="list-group-item-text">Project Team</h5>
+          </a></li> -->
+      </ul>
+    </div>
+  </div>
+</div>
+
+<form class="container" (ngSubmit)="addItems()" #moduleForm="ngForm">
+  {{moduleForm.value|json}}
+  <div class="row setup-content" id="step-1">
+    <div class="col-xs-12">
+      <div class="col-md-12 well text-center">
+        <h4> Project Details</h4>
+        <div class="container col-xs-12">
+          <div class="row clearfix">
+            <div class="col-md-12 column">
+              <div class="responsive p-0">
+                <ng-container *ngIf="variable.appError">
+                  <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    <span class="alert-icon"><i class="fal fa-exclamation-triangle fa-lg"></i></span>&nbsp;
+                    <span class="alert-text text-white"><strong>Error!</strong> {{ messageError }}</span>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                </ng-container>
+
+
+                <div class="row">
+                  <div class="col-xl-12 col-lg-3 col-md-12 d-flex flex-column mx-auto">
+                    <div class="row">
+                    <div class="col-3"><label>Project Category</label></div>
+                    <div class="mb-3 col-6" style="margin-bottom:4px;">
+                      <select class="form-control custom-select" [(ngModel)]="data.project_category" required name="project_category">
+                        <option selected="selected" value="">Select Project category</option>
+                        <option *ngFor="let category of categoryDetails" value="{{category.id}}">
+                          {{category.categoryName}}</option>
+                      </select>
+                    </div>
+                  </div>
+                  </div>
+                  <div class="col-xl-12 col-lg-6 col-md-12 d-flex flex-column mx-auto">
+                   
+                   <div class="row">
+                    <div class="col-3"><label>Project Name</label></div>
+                    <div class="mb-3 col-6">
+                      <input type="text" class="form-control" [(ngModel)]="data.project_name" name="project_name"
+                        placeholder="Car" aria-label="Module" aria-describedby="module-addon" required />
+                    </div>
+                   </div> 
+                   
+                  </div>
+
+
+                  <div class="col-xl-12 col-lg-3 col-md-12 d-flex flex-column mx-auto">
+                    <div class="row">
+                      <div class="col-3"><label>Project Owner Department</label></div>
+                      <div class="mb-3 col-6" style="margin-bottom:4px;">
+                        <select class="form-control custom-select" [(ngModel)]="data.project_owner" required name="project_owner">
+                          <option selected="selected" value="">Select Department</option>
+                          <option *ngFor="let category of departmentDetails" value="{{category.id}}">
+                            {{category.name}}</option>
+                        </select>
+                      </div>
+                    </div>
+                    
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <button id="activate-step-2" class="btn btn-primary btn-md">Next</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="row setup-content" id="step-2">
+    <div class="col-xs-12">
+      <div class="col-md-12 well text-center">
+        <h1 class="text-center"> STEP 3</h1>
+        <div class="row">
+          <div class="row col-xl-12  col-lg-6 col-md-12 d-flex flex-column mx-auto">
+           <div class="col-6"> <label>Department </label></div>
+           
+            <div class="mb-3 col-6">
+              <input type="text" class="form-control" [(ngModel)]="data.project_master" name="project_master" placeholder="----------"
+                aria-label="Module" aria-describedby="module-addon" required />
+            </div>
+          </div>
+        </div>
+        <button id="activate-step-3" class="btn btn-primary btn-md">Next</button>
+      </div>
+    </div>
+  </div>
+</form>
+
+<form class="container">
+  <div class="row setup-content" id="step-3">
+    <div class="col-xs-12">
+      <div class="col-md-12 well text-center">
+        <h1 class="text-center"> STEP 4</h1>
+        <div class="row">
+          <div class="col-xl-2 col-lg-2 col-md-12 d-flex flex-column mx-auto"></div>
+          <div class="col-xl-8 col-lg-8 col-md-12 d-flex flex-column mx-auto">
+            <div class="text-center">
+              <button *ngIf="variable.bfrcreating" type="submit" class="btn bg-gradient-danger w-100 mt-4 mb-0"
+                [disabled]="!moduleForm.valid">Add Item</button>
+              <button *ngIf="variable.creating" class="btn bg-gradient-danger w-100 mt-4 mb-0" type="button" disabled>
+                <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                Adding...
+              </button>
+            </div>
+          </div>
+          <div class="col-xl-2 col-lg-2 col-md-12 d-flex flex-column mx-auto"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>

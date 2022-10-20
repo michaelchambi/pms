@@ -1,0 +1,85 @@
+<ng-container *ngIf="this.variable.addUserSuccess">
+    <div class="alert alert-success alert-dismissible fade show text-white" role="alert">
+        <span class="alert-icon"><i class="fal fa-check-circle fa-lg"></i></span>&nbsp;
+        <span class="alert-text"><strong>Success!</strong> {{success}}</span>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+    </div>
+</ng-container>
+
+<ng-container *ngFor="let permission of action.actionPerm">
+    <a *ngIf="permission.details[0].name == 'add user'" href="add-users/{{sub_moduleId}}" class="btn bg-gradient-primary"><i class="fal fa-plus fa-lg"></i> Add User</a>
+</ng-container>
+
+<ng-container *ngIf="variable.deleteUser">
+    <div class="alert alert-success alert-dismissible fade show text-white" role="alert">
+        <span class="alert-icon"><i class="fal fa-check-circle fa-lg"></i></span>&nbsp;
+        <span class="alert-text"><strong>Success!</strong> User Deleted</span>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+    </div>
+</ng-container>
+
+<div class="row">
+    <div class="col-md-6"></div>
+
+    <div class="col-md-6">
+        <div class="col-md-1"></div>
+        <input type="search" class="form-control" name="search" [(ngModel)]="searchText" autocomplete="on" placeholder="Search" />
+    </div>
+</div>
+<div class="table-responsive p-0">
+
+    <table class="table table-hover align-items-center mb-0">
+        <thead>
+            <tr>
+                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Name</th>
+                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Station</th>
+                <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Status</th>
+                <th class="text-secondary opacity-7"></th>
+            </tr>
+        </thead>
+        <tbody>
+
+            <tr *ngFor="let user of usersList | filter:searchText | paginate:{itemsPerPage: 10, currentPage: p} ">
+                <td>
+                    <div class="d-flex px-2 py-1">
+                        <div>
+                            <img src="../assets/img/curved-images/user2.jpg" class="avatar avatar-sm me-3" alt="user1">
+                        </div>
+                        <div class="d-flex flex-column justify-content-center">
+                            <h6 class="mb-0 text-sm">{{user.fullname}}</h6>
+                            <p class="text-xs text-secondary mb-0">{{user.email}}</p>
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <ng-container *ngIf="errorState">
+                        <p class="text-xs text-secondary mb-0">Court API {{userCourts}}</p>
+                    </ng-container>
+
+                    <ng-container>
+                        <p *ngFor="let courtName of user.court" class="text-xs font-weight-bold mb-0">{{courtName.name}}</p>
+                        <p *ngFor="let profileName of user.profiles" class="text-xs text-secondary mb-0">{{profileName.name}}</p>
+                    </ng-container>
+
+                </td>
+                <td class="align-middle text-center text-sm">
+                    <span *ngIf="user.status == 1" class="badge badge-sm bg-gradient-success">Active</span>
+                    <span *ngIf="user.status == 2" class="badge badge-sm bg-gradient-danger">Inactive</span>
+                    <span *ngIf="user.status == 90" class="badge badge-sm bg-gradient-danger">Password Reset</span>
+                    <span *ngIf="user.status == 909" class="badge badge-sm bg-gradient-primary">Unactivated</span>
+                </td>
+                <td class="align-middle text-center">
+                    <a href="view-user-details/{{user.id}}/{{sub_moduleId}}" class="text-secondary font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Edit user"> View Info </a>
+                </td>
+            </tr>
+
+
+        </tbody>
+    </table>
+    <hr>
+    <pagination-controls (pageChange)="p = $event" class="my-pagination"></pagination-controls>
+</div>
