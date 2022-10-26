@@ -1,0 +1,99 @@
+<div class="main-content position-relative bg-gray-100 max-height-vh-100 h-100">
+  <app-navbar></app-navbar>
+  <div class="container-fluid py-4">
+    <div class="row">
+      <ng-container *ngIf="token != 0">
+        <div class="col-12 col-xl-3">
+          <app-sidebar></app-sidebar>
+        </div>
+
+        <div class="col-12 col-xl-9">
+          <div class="card">
+            <div class="card-header">
+              <div class="row">
+                <div class="col-md-3">
+                  <div class="modal fade" id="modalLoginForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+aria-hidden="true">
+<div class="modal-dialog" role="document">
+  <div class="modal-content">
+    <div class="modal-header text-center">
+      <h4 class="modal-title w-100 font-weight-bold">Extensio Of Time</h4>
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body mx-3">     
+    <div class="form-group row">
+        <label class="col-md-4 col-form-label text-md-right">Project Name</label>
+        <div class="col-md-7">
+        <select class="form-control" name="project_name">
+            <option selected="true" disabled="true" >Select the Project Name</option>
+            <option value="A1">A1</option>
+            <option value="B2">B2</option>
+            <option value="D1">D1</option>
+            </select>
+            </div>
+    </div>
+    <div class="form-group row">
+      <label  class="col-md-4 col-form-label text-md-right">Extend Date From</label>
+      <div class="col-md-7">
+          <input type="date" class="form-control" name="date_from" required>
+      </div>
+  </div>
+  <div class="form-group row">
+    <label  class="col-md-4 col-form-label text-md-right">Extend Date To</label>
+    <div class="col-md-7">
+        <input type="date" class="form-control" name="date_to" required>
+    </div>
+</div>
+<div class="form-group row">
+  <label  class="col-md-4 col-form-label text-md-right">Status</label>
+  <div class="col-md-7">
+ <select class="custom-select">
+<option>Status</option>
+<option>Completed</option>
+<option>Overdue</option>
+<option>Ongoing</option>
+<option>Suspended</option>
+</select>
+  </div>
+</div>
+<div class="form-group row">
+  <label class="col-md-4 col-form-label text-md-right">Upload extension reasons</label>
+  <div class="col-md-7">
+      <input type="file" class="form-control"  name="icon"  required />
+  </div>
+</div>
+    </div>
+    <div class="modal-footer d-flex justify-content-center">
+      <button class="btn btn-default">Save</button>
+    </div>
+  </div>
+</div>
+</div>
+
+<div class="text-center">
+<a href="" class="btn btn-default btn-rounded mb-4" data-toggle="modal" data-target="#modalLoginForm"><i class="fa fa-plus-circle"></i>Add Extension</a>
+</div>
+                </div>
+              </div>
+            </div>
+            <div class="card-body">
+              <!-- content start here -->
+            <app-extension-view></app-extension-view>
+              <!-- content ends here -->
+            </div>
+          </div>
+        </div>
+      </ng-container>
+
+      <ng-container *ngIf="token == 0">
+        <app-reset-session></app-reset-session>
+      </ng-container>
+    </div>
+  
+  </div>
+</div>
+<app-footer></app-footer>
+<!-- PROFILE MODAL -->
+<app-logout></app-logout>

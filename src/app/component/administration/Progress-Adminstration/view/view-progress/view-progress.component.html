@@ -1,0 +1,50 @@
+<div class="main-content position-relative ">
+  <app-navbar></app-navbar>
+  <div class="container-fluid py-4">
+    <div class="row">
+      <ng-container *ngIf="token != 0">
+        <div class="col-12 col-xl-3">
+          <app-sidebar></app-sidebar>
+        </div>
+        <div class="col-12 col-xl-9">
+          <div class="card">
+            <div class="card-header">
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="row" style="margin-left: 20px; margin-top: 12px;">
+                   
+                    
+                  </div>
+                
+                    <nav class="navbar navbar-light bg-light">
+                      <h3>Project Progress</h3>
+                      <form class="form-inline">
+                        <button class="btn btn-outline-success" type="button" (click)="showSoft()">List of Projects</button>
+                        <button class="btn btn-outline-success" type="button"  (click)="showHard()">Gant Chart</button>
+                      </form>
+                    </nav>
+                
+                </div>
+                
+              </div>
+            </div>
+            <div class="card-body" *ngIf="softCopy">
+            <app-list-project-progress></app-list-project-progress>
+            </div>
+            <div class="col-12" *ngIf="hardCopy">
+           <app-gant-chart-project-progress></app-gant-chart-project-progress>             
+            </div>
+          </div>
+        </div>
+      </ng-container>
+
+      <ng-container *ngIf="token == 0">
+        <app-reset-session></app-reset-session>
+      </ng-container>
+    </div>
+   
+  </div>
+</div>
+<app-footer></app-footer>
+<!-- PROFILE MODAL -->
+<app-logout></app-logout>
