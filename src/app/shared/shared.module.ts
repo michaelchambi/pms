@@ -73,19 +73,12 @@ import { AddSubModuleActionFormComponent } from '../component/forms/permission/s
 import { EditSubModuleActionFormComponent } from '../component/forms/permission/sub-module-actions/edit-sub-module-action-form/edit-sub-module-action-form.component';
 import { UpdateRolePermissionComponent } from '../component/administration/permission-administration/role-permission/update-role-permission/update-role-permission.component';
 import { UpdateRolePermissionFormComponent } from '../component/forms/permission/update-role-permission/update-role-permission-form/update-role-permission-form.component';
-
-
 import { AddAppConfigurationComponent } from '../component/app-configuration/add-app-configuration/add-app-configuration.component';
 import { EditAppConfigurationComponent } from '../component/app-configuration/edit-app-configuration/edit-app-configuration.component';
 import { ViewAppConfigurationComponent } from '../component/app-configuration/view-app-configuration/view-app-configuration.component';
 import { AddConfigurationFormComponent } from '../component/forms/app-configuration/add-configuration-form/add-configuration-form.component';
 import { EditConfigurationFormComponent } from '../component/forms/app-configuration/edit-configuration-form/edit-configuration-form.component';
 import { AppConfigurationComponent } from '../component/views/app-configuration/app-configuration/app-configuration.component';
-
-
-
-
-
 import { AuthService } from '../service/auth/auth.service';
 import { CourtsService } from '../service/courts/courts.service';
 import { GeneralService } from '../service/general/general.service';
@@ -102,15 +95,12 @@ import { ModulePermissionsComponent } from '../component/administration/permissi
 import { ModulePermissionsFormComponent } from '../component/forms/permission/modules/module-permissions-form/module-permissions-form.component';
 import { AppConfigService } from '../service/app-config/app-config.service';
 import { AppInfoComponent } from '../component/app-configuration/app-info/app-info.component';
-
-
 import { AddCategoriesComponent } from '../component/administration/categories-administration/add-categories/add-categories.component';
 import { EditCategoriesComponent } from '../component/administration/categories-administration/edit-categories/edit-categories.component';
 import { ViewCategoriesComponent } from '../component/administration/categories-administration/view-categories/view-categories.component';
 import { CategoriesComponent } from '../component/views/categories/categories.component';
 import { AddCategoriesFormComponent } from '../component/forms/categories/add-categories-form/add-categories-form.component';
 import { EditCategoriesFormComponent } from '../component/forms/categories/edit-categories-form/edit-categories-form.component';
-
 import { AddItemsComponent } from '../component/administration/projects-administration/add-items/add-items.component';
 import { EditItemsComponent } from '../component/administration/projects-administration/edit-items/edit-items.component';
 import { ViewItemsComponent } from '../component/administration/projects-administration/view-items/view-items.component';
@@ -121,6 +111,12 @@ import { ViewItemDetailsComponent } from '../component/administration/projects-a
 import { ItemDetailsComponent } from '../component/views/item-details/item-details.component';
 import { EditedItemDetailsComponent } from '../component/views/edited-item-details/edited-item-details.component';
 import { ViewEditedItemDetailsComponent } from '../component/administration/projects-administration/view-edited-item-details/view-edited-item-details.component';
+import { ViewProgressComponent } from '../component/administration/Progress-Adminstration/view/view-progress/view-progress.component';
+import { ListProjectProgressComponent } from '../component/forms/progress-Forms/list-project-progress/list-project-progress.component';
+import { GantChartProjectProgressComponent } from '../component/forms/progress-Forms/gant-chart-project-progress/gant-chart-project-progress.component';
+import { ExtensionFormComponent } from '../component/forms/Extension-Forms/extension-form/extension-form.component';
+import { ExtensionViewComponent } from '../component/views/extensio-time/extension-view/extension-view.component';
+
 
 
 
@@ -212,7 +208,6 @@ import { ViewEditedItemDetailsComponent } from '../component/administration/proj
     CategoriesComponent,
     AddCategoriesFormComponent,
     EditCategoriesFormComponent,
-
     AddItemsComponent,
     EditItemsComponent,
     ViewItemsComponent,
@@ -223,12 +218,14 @@ import { ViewEditedItemDetailsComponent } from '../component/administration/proj
     ItemDetailsComponent,
     EditedItemDetailsComponent,
     ViewEditedItemDetailsComponent,
-
-
-
     EmptyFileComponent,
-    AppInfoComponent,
-
+    AppInfoComponent, 
+    ViewProgressComponent,
+    ListProjectProgressComponent,
+    GantChartProjectProgressComponent,
+    ExtensionFormComponent,
+    ExtensionViewComponent, 
+  
   ],
   imports: [
     CommonModule,

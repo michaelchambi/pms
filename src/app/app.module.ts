@@ -8,12 +8,10 @@ import { HttpClientModule } from '@angular/common/http';
 import { DataTablesModule } from 'angular-datatables';
 import { ReactiveFormsModule } from '@angular/forms';
 
-
-
 @NgModule({
   declarations: [
     AppComponent,
-
+ 
   ],
   imports: [
     BrowserModule,
@@ -22,8 +20,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     CommonModule,
     HttpClientModule,
     ReactiveFormsModule,
-    DataTablesModule
-
+    DataTablesModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

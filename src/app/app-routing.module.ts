@@ -46,6 +46,11 @@ import { AddItemsComponent } from './component/administration/projects-administr
 import { EditItemsComponent } from './component/administration/projects-administration/edit-items/edit-items.component';
 import { ViewItemDetailsComponent } from './component/administration/projects-administration/view-item-details/view-item-details.component';
 import { ViewEditedItemDetailsComponent } from './component/administration/projects-administration/view-edited-item-details/view-edited-item-details.component';
+import { ViewProgressComponent } from './component/administration/Progress-Adminstration/view/view-progress/view-progress.component';
+import { ExtensionFormComponent } from './component/forms/Extension-Forms/extension-form/extension-form.component';
+
+
+
 
 
 const routes: Routes = [
@@ -131,6 +136,11 @@ const routes: Routes = [
   { path: 'add-app-config/:id', component: AddAppConfigurationComponent, canActivate: [AuthGuard] },
   { path: 'edit-app-config/:id/:id2', component: EditAppConfigurationComponent, canActivate: [AuthGuard] },
 
+  
+  //======================================================================================
+  // IMPLEMENTATION  ROUTES
+  //======================================================================================
+
 
   //======================================================================================
   // CHINESE CATEGORIES ROUTES
@@ -139,6 +149,19 @@ const routes: Routes = [
   { path: 'add-categories/:id', component: AddCategoriesComponent, canActivate: [AuthGuard] },
   { path: 'edit-categories/:id/:id2', component: EditCategoriesComponent, canActivate: [AuthGuard] },
 
+  
+   //======================================================================================
+  //EXTENSION TIME ROOTES
+ //======================================================================================
+// { path: 'project_extension/:id', component: ExtensionTimeViewComponent, canActivate: [AuthGuard] },
+ { path: 'project_extension/:id', component:  ExtensionFormComponent, canActivate: [AuthGuard] },
+
+   //======================================================================================
+  //PROGRESS ROUTES   ExtensionTimeViewComponent
+ //======================================================================================
+  { path: 'progress/:id', component: ViewProgressComponent, canActivate: [AuthGuard] },
+//   { path: 'list/:id', component: ListProjectProgressComponent , canActivate: [AuthGuard] },
+//  { path: 'gant/:id', component: GantChartProjectProgressComponent , canActivate: [AuthGuard] },
 
   //======================================================================================
   // CHINESE PROJECT ROUTES

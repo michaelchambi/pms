@@ -1,0 +1,27 @@
+
+  <div class="row">
+    <div class="col-md-6"></div>
+  
+    <div class="col-md-6">
+      <div class="col-md-1"></div>
+      <input type="search" class="form-control" name="search" [(ngModel)]="searchText" autocomplete="on" placeholder="Search" />
+    </div>
+  </div>
+  <div class="table-responsive p-0">
+    <table class="table table-hover align-items-center mb-0">
+      <thead>
+        <tr>
+          <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">#</th>
+          <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Task Name</th>
+          <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Project Name</th>
+          <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Responsible person</th>
+          <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Status</th>
+          <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Deadline</th>
+        </tr>
+      </thead>
+     
+    </table>
+    <hr />
+    <pagination-controls (pageChange)="p = $event" class="my-pagination"></pagination-controls>
+  </div>
+  
