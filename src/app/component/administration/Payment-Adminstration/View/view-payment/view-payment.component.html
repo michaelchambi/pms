@@ -1,0 +1,103 @@
+<div class="main-content position-relative ">
+    <app-navbar></app-navbar>
+    <div class="container-fluid py-4">
+      <div class="row">
+        <ng-container *ngIf="token != 0">
+          <div class="col-12 col-xl-3">
+            <app-sidebar></app-sidebar>
+          </div>
+         
+      <div class="col-12 col-xl-9">
+        <div class="card">
+          <div class="card-header">
+            <div class="row">
+              <div class="col-md-12">              
+                <nav class="navbar navbar-light bg-light">
+                  <!-- <h3>Payment</h3>    -->
+                  
+<div class="container">
+    <h3>Payment List</h3> 
+    <!-- Trigger the modal with a button -->
+    <button type="button" class="btn bg-gradient-primary" data-toggle="modal" data-target="#myModal"><i class="fal fa-plus fa-lg"></i>Add Payment</button>
+  
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" role="dialog">
+      <div class="modal-dialog">
+      
+        <!-- Modal content-->
+        <div class="modal-content">
+          <div class="modal-header" style="background-color:#b3b4b7;">
+            <!-- <button type="button" class="close" data-dismiss="modal">&times;</button> -->
+            <h4 class="modal-title">Payments Details</h4>
+          </div><br>
+          <div class="form-group row">
+            <label  class="col-md-4 col-form-label text-md-right">Invoice No</label>
+            <div class="col-md-7">
+              <input type="text" class="form-control" name="date_from" required>
+            </div>
+            </div>
+          <div class="form-group row">
+            <label class="col-md-4 col-form-label text-md-right" >Project Name</label>
+         <div class="col-md-7">
+        <select class="form-control" name="project_name">
+       <option selected="true" disabled="true" >Select the Project Name</option>
+    <option value="A1">A1</option>
+    <option value="B2">B2</option>
+    <option value="D1">D1</option>
+    </select>
+    </div>
+</div>
+<div class="form-group row">
+  <label  class="col-md-4 col-form-label text-md-right">Amount</label>
+  <div class="col-md-7">
+    <input type="number" class="form-control" name="date_from" required>
+  </div>
+  </div>
+  <div class="form-group row">
+    <label  class="col-md-4 col-form-label text-md-right">Receipt</label>
+    <div class="col-md-7">
+      <input type="file" class="form-control" name="date_from" required>
+    </div>
+    </div>
+<div class="form-group row">
+<label  class="col-md-4 col-form-label text-md-right">Due Date</label>
+<div class="col-md-7">
+  <input type="date" class="form-control" name="date_from" required>
+</div>
+</div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-success" >Save</button>
+            <button type="button" class="btn btn-dange" data-dismiss="modal" style="background-color: rgb(180, 13, 13);">Close</button>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+    
+  </div>
+     <!-- <a  href="add_task/{{ sub_moduleId }}" class="btn bg-gradient-primary"><i class="fal fa-plus fa-lg"></i>Add Task</a>             -->
+                </nav>
+              </div>
+            </div>
+          </div>
+          
+          <div class="card-body">            
+            <!-- content start here -->
+        <app-payments></app-payments>
+            <!-- content ends here -->
+            </div>
+          </div>
+        </div>
+        </ng-container>
+  
+        <ng-container *ngIf="token == 0">
+          <app-reset-session></app-reset-session>
+        </ng-container>
+      </div>
+     
+    </div>
+  </div>
+  <app-footer></app-footer>
+  <!-- PROFILE MODAL -->
+  <app-logout></app-logout>
+  

@@ -48,6 +48,7 @@ import { ViewItemDetailsComponent } from './component/administration/projects-ad
 import { ViewEditedItemDetailsComponent } from './component/administration/projects-administration/view-edited-item-details/view-edited-item-details.component';
 import { ViewProgressComponent } from './component/administration/Progress-Adminstration/view/view-progress/view-progress.component';
 import { ExtensionFormComponent } from './component/forms/Extension-Forms/extension-form/extension-form.component';
+import { ViewPaymentComponent } from './component/administration/Payment-Adminstration/View/view-payment/view-payment.component';
 
 
 
@@ -171,7 +172,15 @@ const routes: Routes = [
   { path: 'add-projects/:id', component: AddItemsComponent, canActivate: [AuthGuard] },
   { path: 'edit-project/:id/:id2', component: EditItemsComponent, canActivate: [AuthGuard] },
   { path: 'view-project-details/:id/:id2', component: ViewItemDetailsComponent, canActivate: [AuthGuard] },
-  { path: 'view-project-details/:id/:id2', component: ViewEditedItemDetailsComponent, canActivate: [AuthGuard] }
+  { path: 'view-project-details/:id/:id2', component: ViewEditedItemDetailsComponent, canActivate: [AuthGuard] },
+
+
+     //======================================================================================
+  //PAYMENTS ROUTES
+ //======================================================================================
+ { path: 'payments/:id', component: ViewPaymentComponent, canActivate: [AuthGuard] },
+ //   { path: 'list/:id', component: ListProjectProgressComponent , canActivate: [AuthGuard] },
+ 
 
 
 

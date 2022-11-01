@@ -116,6 +116,8 @@ import { ListProjectProgressComponent } from '../component/forms/progress-Forms/
 import { GantChartProjectProgressComponent } from '../component/forms/progress-Forms/gant-chart-project-progress/gant-chart-project-progress.component';
 import { ExtensionFormComponent } from '../component/forms/Extension-Forms/extension-form/extension-form.component';
 import { ExtensionViewComponent } from '../component/views/extensio-time/extension-view/extension-view.component';
+import { PaymentsComponent } from '../component/views/Payments/payments/payments.component';
+import { ViewPaymentComponent } from '../component/administration/Payment-Adminstration/View/view-payment/view-payment.component';
 
 
 
@@ -225,7 +227,9 @@ import { ExtensionViewComponent } from '../component/views/extensio-time/extensi
     GantChartProjectProgressComponent,
     ExtensionFormComponent,
     ExtensionViewComponent, 
-  
+    PaymentsComponent,
+    ViewPaymentComponent,
+ 
   ],
   imports: [
     CommonModule,
