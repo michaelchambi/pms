@@ -1,0 +1,89 @@
+<div class="main-content position-relative ">
+    <app-navbar></app-navbar>
+    <div class="container-fluid py-4">
+      <div class="row">
+        <ng-container *ngIf="token != 0">
+          <div class="col-12 col-xl-3">
+            <app-sidebar></app-sidebar>
+          </div>
+          <div class="col-12 col-xl-9">
+            <div class="card">
+              <div class="card-header">
+                <div class="row">
+                  <div class="col-md-12">              
+                    <nav class="navbar navbar-light bg-light">
+                     
+                       <div class="container">
+                     <form>
+                        <div class="form-group row">
+                            <label class="col-md-4 col-form-label text-md-right" >Project Number:</label>
+                         <div class="col-md-7">
+                      <label  style="font-size: 18px;">P001</label>
+                    </div>
+                </div>
+                  <div class="form-group row">
+                    <label class="col-md-4 col-form-label text-md-right" >Project Name:</label>
+                        <div class="col-md-7">
+                       <label  style="font-size: 18px;">Development of the Project Management System</label>
+                              </div>
+                          </div>
+                          <div class="form-group row">
+                            <label  class="col-md-4 col-form-label text-md-right">Extended From:</label>
+                            <div class="col-md-7">
+                                <label  style="font-size: 18px;"> 20/10/2022</label>
+                            </div>
+                            </div>                            
+                            <div class="form-group row">
+                              <label  class="col-md-4 col-form-label text-md-right">Extended To</label>
+                              <div class="col-md-7">
+                                <label  style="font-size: 18px;"> 30/11/2022</label>
+                             </div>
+                              </div>
+                              <div class="form-group row">
+                                <label class="col-md-4 col-form-label text-md-right" >Status:</label>
+                                <div class="col-md-7">
+                                    <label  style="font-size: 18px;">Overdue</label>
+                                </div>
+                                </div>                      
+                            <div class="form-group row">
+                              <label  class="col-md-4 col-form-label text-md-right">Attachmented Document</label>
+                              <div class="col-md-7">
+                                <a href="#"><i class="fa fa-file-pdf fa-5x" ></i><img src=""></a>
+                              </div>
+                              </div>
+                              <div class="form-group row">
+                                <label class="col-md-4 col-form-label text-md-right" >Reasons:</label>
+                                <div class="col-md-7">
+                                    <label  style="font-size: 18px;">The project needed extension of time due to the following reasons</label>
+                                </div>
+                                </div> 
+                                    <div>
+                                        <td >
+                                            <a  href="'edit_extension/{{ sub_moduleId }}"><button type="button" class="btn btn-danger">Edit</button></a> 
+                                            <a  href="project_extension/{{ sub_moduleId }}"><button type="button" class="btn btn-success">Back To Extension List</button></a> 
+                                          
+                                          </td>    
+                                   </div>
+                                  </form> 
+                                   </div>            
+                    </nav>
+                  </div>
+                </div>
+              </div>
+              </div>
+            </div>
+        
+         
+        </ng-container>
+  
+        <ng-container *ngIf="token == 0">
+          <app-reset-session></app-reset-session>
+        </ng-container>
+      </div>
+     
+    </div>
+  </div>
+  <!-- <app-footer></app-footer> -->
+  <!-- PROFILE MODAL -->
+  <app-logout></app-logout>
+  

@@ -1,0 +1,79 @@
+<div class="main-content position-relative ">
+    <app-navbar></app-navbar>
+    <div class="container-fluid py-4">
+      <div class="row">
+        <ng-container *ngIf="token != 0">
+          <div class="col-12 col-xl-3">
+            <app-sidebar></app-sidebar>
+          </div>
+         
+      <div class="col-12 col-xl-9">
+        <div class="card">
+          <div class="card-header">
+            <div class="row">
+              <div class="col-md-12">              
+                <nav class="navbar navbar-light bg-light">
+                  <!-- <h3>Payment</h3>    -->
+                  
+<div class="container">
+    <h3>Project Extension Edit</h3> 
+    <a  href="project_extension/{{ sub_moduleId }}" class="btn bg-gradient-primary"><i class="fa fa-arrow-left"></i>Project Extension Time List</a>  
+   </div>            
+                </nav>
+              </div>
+            </div>
+          </div>
+          
+          <div class="card-body">            
+            <!-- content start here -->
+            <div class="container rounded bg-white mt-5">
+                <div class="row">
+                    <div class="col-md-4 border-right">
+                        <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img class="rounded-circle mt-5" src="../../../../../../assets/img/edit.webp" width="90"><span class="font-weight-bold">Project Number: P001</span><span class="font-weight-bold">Project Name: Development Project</span><span class="font-weight-bold">Department: DICT</span></div>
+                    </div>
+                    <div class="col-md-8">
+                        <div class="p-3 py-5">
+                            <div class="row mt-2">
+                                <div class="col-md-6"><input type="text" class="form-control" placeholder="first name" value="Project Number"></div>
+                                <div class="col-md-6"><input type="text" class="form-control" value="Project Name" placeholder="Project Name"></div>
+                            </div>
+                            <div class="row mt-3">
+                                <div class="col-md-6"><input type="text" class="form-control" placeholder="Extended From" value="20/10/2022"></div>
+                                <div class="col-md-6"><input type="text" class="form-control" value="28/10/2022" placeholder="Extended To"></div>
+                            </div>
+                            <div class="row mt-3">
+                                <div class="col-md-6"> <select class="form-control" name="project_name">
+                                    <option selected="true" aria-placeholder="Pending" value="1" >Pending</option>
+                                    <option value="1" style="color: blue;">Pending</option>
+                                    <option value="2" style="color: yellow;">Overdue</option>
+                                    <option value="3" style="color: green;">Onhold</option>
+                                    <option value="4" style="color: red;">Cancelled</option> 
+                                        </select></div>
+                                <div class="col-md-6"><input type="file" class="form-control" value="USA" placeholder="Extension reason Attachment if any"></div>
+                            </div><br><br>
+                            <ejs-richtexteditor>
+                                       
+                            </ejs-richtexteditor>
+                           
+                            <div class="mt-5 text-right"><button class="btn btn-info profile-button" type="button">Save Changes</button></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- content ends here -->
+            </div>
+          </div>
+        </div>
+        </ng-container>
+  
+        <ng-container *ngIf="token == 0">
+          <app-reset-session></app-reset-session>
+        </ng-container>
+      </div>
+     
+    </div>
+  </div>
+  <!-- <app-footer></app-footer> -->
+  <!-- PROFILE MODAL -->
+  <app-logout></app-logout>
+  

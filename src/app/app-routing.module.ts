@@ -33,7 +33,6 @@ import { EditSubModuleComponent } from './component/administration/permission-ad
 import { ViewSubModuleActionComponent } from './component/administration/permission-administration/sub-module-actions/view-sub-module-action/view-sub-module-action.component';
 import { AddSubModuleActionComponent } from './component/administration/permission-administration/sub-module-actions/add-sub-module-action/add-sub-module-action.component';
 import { EditSubModuleActionComponent } from './component/administration/permission-administration/sub-module-actions/edit-sub-module-action/edit-sub-module-action.component';
-import { UpdateRolePermissionComponent } from './component/administration/permission-administration/role-permission/update-role-permission/update-role-permission.component';
 import { ModulePermissionsComponent } from './component/administration/permission-administration/role-permission/module-permissions/module-permissions.component';
 import { ViewAppConfigurationComponent } from './component/app-configuration/view-app-configuration/view-app-configuration.component';
 import { AddAppConfigurationComponent } from './component/app-configuration/add-app-configuration/add-app-configuration.component';
@@ -46,9 +45,11 @@ import { AddItemsComponent } from './component/administration/projects-administr
 import { EditItemsComponent } from './component/administration/projects-administration/edit-items/edit-items.component';
 import { ViewItemDetailsComponent } from './component/administration/projects-administration/view-item-details/view-item-details.component';
 import { ViewEditedItemDetailsComponent } from './component/administration/projects-administration/view-edited-item-details/view-edited-item-details.component';
-import { ViewProgressComponent } from './component/administration/Progress-Adminstration/view/view-progress/view-progress.component';
-import { ExtensionFormComponent } from './component/forms/Extension-Forms/extension-form/extension-form.component';
 import { ViewPaymentComponent } from './component/administration/Payment-Adminstration/View/view-payment/view-payment.component';
+import { ViewExtensionComponent } from './component/administration/Extension-Adminstration/View/view-extension/view-extension.component';
+import { AddExtensionComponent } from './component/administration/Extension-Adminstration/Add/add-extension/add-extension.component';
+import { EditExtensionFormComponent } from './component/forms/Extension-Time-Forms/Edit-Extension-forms/edit-extension-form/edit-extension-form.component';
+import { TimeExtensionDetailedViewComponent } from './component/views/Time-Extension/time-extension-detailed-view/time-extension-detailed-view.component';
 
 
 
@@ -150,20 +151,7 @@ const routes: Routes = [
   { path: 'add-categories/:id', component: AddCategoriesComponent, canActivate: [AuthGuard] },
   { path: 'edit-categories/:id/:id2', component: EditCategoriesComponent, canActivate: [AuthGuard] },
 
-  
-   //======================================================================================
-  //EXTENSION TIME ROOTES
- //======================================================================================
-// { path: 'project_extension/:id', component: ExtensionTimeViewComponent, canActivate: [AuthGuard] },
- { path: 'project_extension/:id', component:  ExtensionFormComponent, canActivate: [AuthGuard] },
-
-   //======================================================================================
-  //PROGRESS ROUTES   ExtensionTimeViewComponent
- //======================================================================================
-  { path: 'progress/:id', component: ViewProgressComponent, canActivate: [AuthGuard] },
-//   { path: 'list/:id', component: ListProjectProgressComponent , canActivate: [AuthGuard] },
-//  { path: 'gant/:id', component: GantChartProjectProgressComponent , canActivate: [AuthGuard] },
-
+ 
   //======================================================================================
   // CHINESE PROJECT ROUTES
   //======================================================================================
@@ -181,9 +169,13 @@ const routes: Routes = [
  { path: 'payments/:id', component: ViewPaymentComponent, canActivate: [AuthGuard] },
  //   { path: 'list/:id', component: ListProjectProgressComponent , canActivate: [AuthGuard] },
  
-
-
-
+   //======================================================================================
+  //EXTENSION TIME ROOTES  
+ //======================================================================================
+ { path: 'project_extension/:id', component:   ViewExtensionComponent,canActivate: [AuthGuard] },
+ { path: 'add_extension/:id', component: AddExtensionComponent, canActivate: [AuthGuard] },
+ { path: 'edit_extension/:id', component:  EditExtensionFormComponent, canActivate: [AuthGuard] },
+ { path: 'extenstion_Detailed_view/:id', component:  TimeExtensionDetailedViewComponent, canActivate: [AuthGuard] },
 ];
 
 @NgModule({

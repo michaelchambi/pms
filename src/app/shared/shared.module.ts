@@ -111,13 +111,16 @@ import { ViewItemDetailsComponent } from '../component/administration/projects-a
 import { ItemDetailsComponent } from '../component/views/item-details/item-details.component';
 import { EditedItemDetailsComponent } from '../component/views/edited-item-details/edited-item-details.component';
 import { ViewEditedItemDetailsComponent } from '../component/administration/projects-administration/view-edited-item-details/view-edited-item-details.component';
-import { ViewProgressComponent } from '../component/administration/Progress-Adminstration/view/view-progress/view-progress.component';
-import { ListProjectProgressComponent } from '../component/forms/progress-Forms/list-project-progress/list-project-progress.component';
-import { GantChartProjectProgressComponent } from '../component/forms/progress-Forms/gant-chart-project-progress/gant-chart-project-progress.component';
-import { ExtensionFormComponent } from '../component/forms/Extension-Forms/extension-form/extension-form.component';
-import { ExtensionViewComponent } from '../component/views/extensio-time/extension-view/extension-view.component';
 import { PaymentsComponent } from '../component/views/Payments/payments/payments.component';
 import { ViewPaymentComponent } from '../component/administration/Payment-Adminstration/View/view-payment/view-payment.component';
+import { ViewExtensionComponent } from '../component/administration/Extension-Adminstration/View/view-extension/view-extension.component';
+import { EditExtensionComponent } from '../component/administration/Extension-Adminstration/Edit/edit-extension/edit-extension.component';
+import { AddExtensionComponent } from '../component/administration/Extension-Adminstration/Add/add-extension/add-extension.component';
+import { TimeExtensionComponent } from '../component/views/Time-Extension/time-extension/time-extension.component';
+import { ExtensionFormComponent } from '../component/forms/Extension-Time-Forms/Extension-forms/extension-form/extension-form.component';
+import { RichTextEditorAllModule } from '@syncfusion/ej2-angular-richtexteditor'; 
+import { EditExtensionFormComponent } from '../component/forms/Extension-Time-Forms/Edit-Extension-forms/edit-extension-form/edit-extension-form.component';
+import { TimeExtensionDetailedViewComponent } from '../component/views/Time-Extension/time-extension-detailed-view/time-extension-detailed-view.component';
 
 
 
@@ -222,14 +225,15 @@ import { ViewPaymentComponent } from '../component/administration/Payment-Admins
     ViewEditedItemDetailsComponent,
     EmptyFileComponent,
     AppInfoComponent, 
-    ViewProgressComponent,
-    ListProjectProgressComponent,
-    GantChartProjectProgressComponent,
-    ExtensionFormComponent,
-    ExtensionViewComponent, 
     PaymentsComponent,
     ViewPaymentComponent,
- 
+    ViewExtensionComponent,
+    EditExtensionComponent,
+    AddExtensionComponent,
+    TimeExtensionComponent,
+    ExtensionFormComponent,
+    EditExtensionFormComponent,
+    TimeExtensionDetailedViewComponent,    
   ],
   imports: [
     CommonModule,
@@ -237,8 +241,8 @@ import { ViewPaymentComponent } from '../component/administration/Payment-Admins
     NgSelectModule,
     ReactiveFormsModule,
     NgxPaginationModule,
-    Ng2SearchPipeModule
-
+    Ng2SearchPipeModule,
+    RichTextEditorAllModule
   ],
   providers: [
     AuthService,
