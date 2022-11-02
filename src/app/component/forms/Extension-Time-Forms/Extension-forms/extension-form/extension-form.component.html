@@ -1,0 +1,77 @@
+<div class="col-12 col-xl-9">
+    <div class="card">
+      <div class="card-header">
+        <div class="row">
+          <div class="col-md-12">              
+            <nav class="navbar navbar-light bg-light">
+             
+               <div class="container">
+             <form>
+                <div class="form-group row">
+                    <label class="col-md-4 col-form-label text-md-right" >Project Number:</label>
+                 <div class="col-md-7">
+                <select class="form-control" name="project_name">
+               <option selected="true" disabled="true" >Select the Project Name</option>
+            <option value="A1">A1</option>
+            <option value="B2">B2</option>
+            <option value="D1">D1</option>
+            </select>
+            </div>
+        </div>
+          <div class="form-group row">
+            <label class="col-md-4 col-form-label text-md-right" >Project Name:</label>
+                <div class="col-md-7">
+                 <select class="form-control" name="project_name">
+                  <option selected="true" disabled="true" >Select the Project Name</option>
+                      <option value="A1">A1</option>
+                      <option value="B2">B2</option>
+                      <option value="D1">D1</option>
+                      </select>
+                      </div>
+                  </div>
+                  <div class="form-group row">
+                    <label  class="col-md-4 col-form-label text-md-right">StartDate</label>
+                    <div class="col-md-7">
+                      <input type="date" class="form-control" name="date_from" required>
+                    </div>
+                    </div>
+                    <div class="form-group row">
+                      <label  class="col-md-4 col-form-label text-md-right">Extended To</label>
+                      <div class="col-md-7">
+                        <input type="date" class="form-control" name="date_from" required>
+                      </div>
+                      </div>
+                      <div class="form-group row">
+                        <label class="col-md-4 col-form-label text-md-right" >Status:</label>
+                            <div class="col-md-7">
+                             <select class="form-control" name="project_name">
+                              <option selected="true" disabled="true" >Select the Project Name</option>
+                              <option value="1" style="color: blue;">Pending</option>
+                              <option value="2" style="color: yellow;">Overdue</option>
+                              <option value="3" style="color: green;">Onhold</option>
+                              <option value="4" style="color: red;">Cancelled</option> 
+                                  </select>
+                                  </div>
+                              </div>                      
+                    <div class="form-group row">
+                      <label  class="col-md-4 col-form-label text-md-right">Attachment If any</label>
+                      <div class="col-md-7">
+                        <input type="file" class="form-control" name="date_from">
+                      </div>
+                      </div>
+                  <ejs-richtexteditor>
+                    <p>Reason For Extension</p>
+                  </ejs-richtexteditor>
+                            <div class="modal-footer">
+                              <button type="button" class="btn btn-info" >Save</button>
+                           </div>
+                          </form> 
+                           </div>            
+            </nav>
+          </div>
+        </div>
+      </div>
+      </div>
+    </div>
+
+ 

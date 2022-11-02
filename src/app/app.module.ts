@@ -7,6 +7,7 @@ import { SharedModule } from './shared/shared.module';
 import { HttpClientModule } from '@angular/common/http';
 import { DataTablesModule } from 'angular-datatables';
 import { ReactiveFormsModule } from '@angular/forms';
+import { ToolbarService, LinkService, ImageService, HtmlEditorService, TableService } from '@syncfusion/ej2-angular-richtexteditor';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     ReactiveFormsModule,
     DataTablesModule,
   ],
-  providers: [],
+  providers: [ToolbarService, LinkService, ImageService, HtmlEditorService, TableService ],
   bootstrap: [AppComponent],
 })
 export class AppModule { }

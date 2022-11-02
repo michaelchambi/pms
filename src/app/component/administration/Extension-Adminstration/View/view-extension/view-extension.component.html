@@ -1,0 +1,46 @@
+<div class="main-content position-relative ">
+    <app-navbar></app-navbar>
+    <div class="container-fluid py-4">
+      <div class="row">
+        <ng-container *ngIf="token != 0">
+          <div class="col-12 col-xl-3">
+            <app-sidebar></app-sidebar>
+          </div>
+         
+      <div class="col-12 col-xl-9">
+        <div class="card">
+          <div class="card-header">
+            <div class="row">
+              <div class="col-md-12">              
+                <nav class="navbar navbar-light bg-light">
+                  <!-- <h3>Payment</h3>    -->
+                  
+<div class="container">
+    <h3>Project Extension List</h3> 
+    <a  href="add_extension/{{ sub_moduleId }}" class="btn bg-gradient-primary"><i class="fal fa-plus fa-lg"></i>Add Extension</a>  
+   </div>            
+                </nav>
+              </div>
+            </div>
+          </div>
+          
+          <div class="card-body">            
+            <!-- content start here -->
+     <app-time-extension></app-time-extension>
+            <!-- content ends here -->
+            </div>
+          </div>
+        </div>
+        </ng-container>
+  
+        <ng-container *ngIf="token == 0">
+          <app-reset-session></app-reset-session>
+        </ng-container>
+      </div>
+     
+    </div>
+  </div>
+  <app-footer></app-footer>
+  <!-- PROFILE MODAL -->
+  <app-logout></app-logout>
+  
