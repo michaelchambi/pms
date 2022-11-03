@@ -50,6 +50,9 @@ import { ViewExtensionComponent } from './component/administration/Extension-Adm
 import { AddExtensionComponent } from './component/administration/Extension-Adminstration/Add/add-extension/add-extension.component';
 import { EditExtensionFormComponent } from './component/forms/Extension-Time-Forms/Edit-Extension-forms/edit-extension-form/edit-extension-form.component';
 import { TimeExtensionDetailedViewComponent } from './component/views/Time-Extension/time-extension-detailed-view/time-extension-detailed-view.component';
+import { AddImplementationPlanComponent } from './component/administration/Implementation-Plan-Adminstration/Add/add-implementation-plan/add-implementation-plan.component';
+import { EditImplementationPlanComponent } from './component/administration/Implementation-Plan-Adminstration/Edit/edit-implementation-plan/edit-implementation-plan.component';
+import { ViewImplementationPlanComponent } from './component/administration/Implementation-Plan-Adminstration/View/view-implementation-plan/view-implementation-plan.component';
 
 
 
@@ -162,12 +165,18 @@ const routes: Routes = [
   { path: 'view-project-details/:id/:id2', component: ViewItemDetailsComponent, canActivate: [AuthGuard] },
   { path: 'view-project-details/:id/:id2', component: ViewEditedItemDetailsComponent, canActivate: [AuthGuard] },
 
+  //======================================================================================
+  //IMPLEMENTATION PLAN ROUTES
+ //======================================================================================
+ { path: 'plan/:id', component: ViewImplementationPlanComponent, canActivate: [AuthGuard] },
+ { path: 'add_plan/:id', component: AddImplementationPlanComponent  , canActivate: [AuthGuard] },
+
 
      //======================================================================================
   //PAYMENTS ROUTES
  //======================================================================================
  { path: 'payments/:id', component: ViewPaymentComponent, canActivate: [AuthGuard] },
- //   { path: 'list/:id', component: ListProjectProgressComponent , canActivate: [AuthGuard] },
+ //   { path: 'add_plan/:id', component: AddImplementationPlanComponent  , canActivate: [AuthGuard] },
  
    //======================================================================================
   //EXTENSION TIME ROOTES  
