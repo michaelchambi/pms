@@ -121,6 +121,12 @@ import { ExtensionFormComponent } from '../component/forms/Extension-Time-Forms/
 import { RichTextEditorAllModule } from '@syncfusion/ej2-angular-richtexteditor'; 
 import { EditExtensionFormComponent } from '../component/forms/Extension-Time-Forms/Edit-Extension-forms/edit-extension-form/edit-extension-form.component';
 import { TimeExtensionDetailedViewComponent } from '../component/views/Time-Extension/time-extension-detailed-view/time-extension-detailed-view.component';
+import { ImplementationPlanComponent } from '../component/views/Implementation-plan/implementation-plan/implementation-plan.component';
+import { EditImplementatioFormComponent } from '../component/forms/Implementation-Plan-Forms/Edit/edit-implementatio-form/edit-implementatio-form.component';
+import { AddImplementatioFormComponent } from '../component/forms/Implementation-Plan-Forms/Add/add-implementatio-form/add-implementatio-form.component';
+import { AddImplementationPlanComponent } from '../component/administration/Implementation-Plan-Adminstration/Add/add-implementation-plan/add-implementation-plan.component';
+import { EditImplementationPlanComponent } from '../component/administration/Implementation-Plan-Adminstration/Edit/edit-implementation-plan/edit-implementation-plan.component';
+import { ViewImplementationPlanComponent } from '../component/administration/Implementation-Plan-Adminstration/View/view-implementation-plan/view-implementation-plan.component';
 
 
 
@@ -233,7 +239,14 @@ import { TimeExtensionDetailedViewComponent } from '../component/views/Time-Exte
     TimeExtensionComponent,
     ExtensionFormComponent,
     EditExtensionFormComponent,
-    TimeExtensionDetailedViewComponent,    
+    TimeExtensionDetailedViewComponent,  
+    ImplementationPlanComponent,
+    EditImplementatioFormComponent,
+    AddImplementatioFormComponent,
+    AddImplementationPlanComponent,
+    EditImplementationPlanComponent,
+    ViewImplementationPlanComponent,
+   
   ],
   imports: [
     CommonModule,
