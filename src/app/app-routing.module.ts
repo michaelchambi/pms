@@ -53,6 +53,7 @@ import { TimeExtensionDetailedViewComponent } from './component/views/Time-Exten
 import { AddImplementationPlanComponent } from './component/administration/Implementation-Plan-Adminstration/Add/add-implementation-plan/add-implementation-plan.component';
 import { EditImplementationPlanComponent } from './component/administration/Implementation-Plan-Adminstration/Edit/edit-implementation-plan/edit-implementation-plan.component';
 import { ViewImplementationPlanComponent } from './component/administration/Implementation-Plan-Adminstration/View/view-implementation-plan/view-implementation-plan.component';
+import { ViewUserProfileComponent } from './component/administration/User-Profile-view-Adminstration/View/view-user-profile/view-user-profile.component';
 
 
 
@@ -132,6 +133,11 @@ const routes: Routes = [
   // { path: 'role-permission/:id', component: UpdateRolePermissionComponent, canActivate:[AuthGuard]},
   { path: 'role-permission/:id', component: ModulePermissionsComponent, canActivate: [AuthGuard] },
   { path: 'module-permissions/:id', component: ModulePermissionsComponent, canActivate: [AuthGuard] },
+
+  //======================================================================================
+  //USER PROFILE ROUTES
+ //======================================================================================
+ { path: 'profile-view/:id', component: ViewUserProfileComponent  , canActivate: [AuthGuard] },
 
 
   //======================================================================================
