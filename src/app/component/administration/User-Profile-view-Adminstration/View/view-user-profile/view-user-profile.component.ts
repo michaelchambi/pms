@@ -2,11 +2,13 @@ import { Component, OnInit } from '@angular/core';
 import { GeneralService } from 'src/app/service/general/general.service';
 import { ActivatedRoute } from '@angular/router';
 @Component({
-  selector: 'app-implementation-plan',
-  templateUrl: './implementation-plan.component.html',
-  styleUrls: ['./implementation-plan.component.css']
+  selector: 'app-view-user-profile',
+  templateUrl: './view-user-profile.component.html',
+  styleUrls: ['./view-user-profile.component.css']
 })
-export class ImplementationPlanComponent implements OnInit {
+export class ViewUserProfileComponent implements OnInit {
+
+  
   token: any;
   sub_moduleId: any;
   constructor(

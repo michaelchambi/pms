@@ -11,7 +11,8 @@ import { ToolbarService, LinkService, ImageService, HtmlEditorService, TableServ
 
 @NgModule({
   declarations: [
-    AppComponent, 
+    AppComponent,
+   
   ],
   imports: [
     BrowserModule,

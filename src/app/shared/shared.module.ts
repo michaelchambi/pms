@@ -127,6 +127,8 @@ import { AddImplementatioFormComponent } from '../component/forms/Implementation
 import { AddImplementationPlanComponent } from '../component/administration/Implementation-Plan-Adminstration/Add/add-implementation-plan/add-implementation-plan.component';
 import { EditImplementationPlanComponent } from '../component/administration/Implementation-Plan-Adminstration/Edit/edit-implementation-plan/edit-implementation-plan.component';
 import { ViewImplementationPlanComponent } from '../component/administration/Implementation-Plan-Adminstration/View/view-implementation-plan/view-implementation-plan.component';
+import { ViewUserProfileComponent } from '../component/administration/User-Profile-view-Adminstration/View/view-user-profile/view-user-profile.component';
+import { UserProfileViewComponent } from '../component/views/User-Profile/user-profile-view/user-profile-view.component';
 
 
 
@@ -246,6 +248,8 @@ import { ViewImplementationPlanComponent } from '../component/administration/Imp
     AddImplementationPlanComponent,
     EditImplementationPlanComponent,
     ViewImplementationPlanComponent,
+    ViewUserProfileComponent,
+    UserProfileViewComponent, 
    
   ],
   imports: [
