@@ -1,0 +1,130 @@
+<div id="main-wrapper" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full"
+    data-sidebar-position="absolute" data-header-position="absolute" data-boxed-layout="full">
+    <div class="page-wrapper">
+        <div class="page-breadcrumb">
+            <div class="row align-items-center">
+                <div class="col-md-6 col-8 align-self-center">
+                    <h6 class="page-title mb-0 p-0">My Dashboard</h6>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="card">
+                        <div class="card-body  l-bg-orange-dark">
+                            <h4 class="card-title">Total Projects</h4>
+                            <div class="text-end">
+                                <span style=" float: left;"><i class="fa fa-cubes  fa-3x"></i></span>
+                                <h2 class="font-light mb-0"><i class="ti-arrow-up text-success"></i> 3</h2>
+                                <span class="text-muted">As Today</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="card">
+                        <div class="card-body l-bg-pich">
+                            <h4 class="card-title">Total Tasks</h4>
+                            <div class="text-end">
+                                <span style=" float: left;"><i class="fa fa-tasks  fa-3x"></i></span>
+                                <h2 class="font-light mb-0"><i class="ti-arrow-up text-info"></i>7</h2>
+                                <span class="text-muted">As Today</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <div class="row justify-content-center">
+                <div class="row">
+                    <div class="col-md-6"></div>
+                    <div class="col-md-6">
+                        <input type="search" class="form-control" name="search" autocomplete="on"
+                            placeholder="Search Payment" />
+                    </div>
+                </div>
+                <table id="dtBasicExample" class="table table-striped table-bordered table-sm" cellspacing="0"
+                    width="100%">
+                    <thead>
+                        <tr style=" background-color: #79797c; color: white;">
+                            <th><b>#</b></th>
+                            <th class="th-sm"><b>Project Name</b>
+                            </th>
+                            <th class="th-sm"><b>Task Name</b>
+                            </th>
+                            <th class="th-sm"><b>Implemetation Plan</b>
+                            </th>
+                            <th class="th-sm"><b>Status</b>
+                            </th>
+                            <th class="th-sm"><b>Action</b>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>Software Development</td>
+                            <td>Gathering Of Requirements</td>
+                            <td><a href="#"><i class="fa fa-file-pdf"></i><img src=""></a></td>
+                            <td>Onprogress</td>
+                            <td>
+                                <a href="#/{{ sub_moduleId }}" class="btn" style="background-color: #25559c;"><i
+                                        class="fas fa-folder"></i>View</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>SYSTEM AWARENESS</td>
+                            <td>User Training</td>
+                            <td><a href="#"><i class="fa fa-file-pdf"></i><img src=""></a></td>
+                            <td>Onhold</td>
+                            <td>
+                                <a class="btn" href="./index.php?page=view_project&amp;id=3"
+                                    style="background-color: #25559c;"><i class="fas fa-folder"></i>View</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>SYSTEM Testing</td>
+                            <td>User and security team testing</td>
+                            <td><a href="#"><i class="fa fa-file-pdf"></i><img src=""></a></td>
+                            <td>Onhold</td>
+                            <td>
+                                <a href="#/{{ sub_moduleId }}" class="btn" style="background-color: #25559c;"><i
+                                        class="fas fa-folder"></i>View</a>
+                            </td>
+                        </tr>                       
+                        <tr>
+                            <td>6</td>
+                            <td>Networking Maintainance</td>
+                            <td>Network team to draw network infr</td>
+                            <td><a href="#"><i class="fa fa-file-pdf"></i><img src=""></a></td>
+                            <td>Onhold</td>
+                            <td>
+                                <a href="#/{{ sub_moduleId }}" class="btn" style="background-color: #25559c;"><i
+                                        class="fas fa-folder"></i>View</a>
+                            </td>
+                        </tr>
+
+                    </tbody>
+                    <tfoot>
+                        <tr style=" background-color: #79797c; color: white;">
+                            <th><b>#</b></th>
+                            <th class="th-sm"><b>Project Name</b>
+                            </th>
+                            <th class="th-sm"><b>Task Name</b>
+                            </th>
+                            <th class="th-sm"><b>Implemetation Plan</b>
+                            </th>
+                            <th class="th-sm"><b>Status</b>
+                            </th>
+                            <th class="th-sm"><b>Action</b>
+                            </th>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

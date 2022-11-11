@@ -129,6 +129,8 @@ import { EditImplementationPlanComponent } from '../component/administration/Imp
 import { ViewImplementationPlanComponent } from '../component/administration/Implementation-Plan-Adminstration/View/view-implementation-plan/view-implementation-plan.component';
 import { ViewUserProfileComponent } from '../component/administration/User-Profile-view-Adminstration/View/view-user-profile/view-user-profile.component';
 import { UserProfileViewComponent } from '../component/views/User-Profile/user-profile-view/user-profile-view.component';
+import { AdminDashboardViewComponent } from '../component/views/Dashboard/admin-dashboard-view/admin-dashboard-view.component';
+import { UserDashboardViewComponent } from '../component/views/Dashboard/user-dashboard-view/user-dashboard-view.component';
 
 
 
@@ -249,8 +251,9 @@ import { UserProfileViewComponent } from '../component/views/User-Profile/user-p
     EditImplementationPlanComponent,
     ViewImplementationPlanComponent,
     ViewUserProfileComponent,
-    UserProfileViewComponent, 
-   
+    UserProfileViewComponent,    
+    AdminDashboardViewComponent,
+    UserDashboardViewComponent,
   ],
   imports: [
     CommonModule,

@@ -1,0 +1,9 @@
+.l-bg-pich{
+    background: linear-gradient(to right,#25559c, #6eadeb) !important;
+    color: #fff;
+}
+
+.l-bg-orange-dark {
+    background: linear-gradient(to right, #a86008, #f0b65e) !important;
+    color: #fff;
+}
