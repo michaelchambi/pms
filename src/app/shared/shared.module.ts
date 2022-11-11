@@ -131,6 +131,11 @@ import { ViewUserProfileComponent } from '../component/administration/User-Profi
 import { UserProfileViewComponent } from '../component/views/User-Profile/user-profile-view/user-profile-view.component';
 import { AdminDashboardViewComponent } from '../component/views/Dashboard/admin-dashboard-view/admin-dashboard-view.component';
 import { UserDashboardViewComponent } from '../component/views/Dashboard/user-dashboard-view/user-dashboard-view.component';
+import { TaskComponent } from '../component/views/Task/task/task.component';
+import { TaskFormComponent } from '../component/forms/Task/task-form/task-form.component';
+import { ViewTaskAdminComponent } from '../component/administration/Task-Adminstration/View/view-task-admin/view-task-admin.component';
+import { AddTaskAdminComponent } from '../component/administration/Task-Adminstration/Add/add-task-admin/add-task-admin.component';
+import { EditTaskAdminComponent } from '../component/administration/Task-Adminstration/Edit/edit-task-admin/edit-task-admin.component';
 
 
 
@@ -253,7 +258,12 @@ import { UserDashboardViewComponent } from '../component/views/Dashboard/user-da
     ViewUserProfileComponent,
     UserProfileViewComponent,    
     AdminDashboardViewComponent,
-    UserDashboardViewComponent,
+    UserDashboardViewComponent,    
+    TaskComponent,
+    TaskFormComponent,
+    ViewTaskAdminComponent,
+    AddTaskAdminComponent,
+    EditTaskAdminComponent,
   ],
   imports: [
     CommonModule,
@@ -262,7 +272,7 @@ import { UserDashboardViewComponent } from '../component/views/Dashboard/user-da
     ReactiveFormsModule,
     NgxPaginationModule,
     Ng2SearchPipeModule,
-    RichTextEditorAllModule
+    RichTextEditorAllModule,   
   ],
   providers: [
     AuthService,

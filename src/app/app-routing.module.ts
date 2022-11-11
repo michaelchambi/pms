@@ -54,6 +54,9 @@ import { AddImplementationPlanComponent } from './component/administration/Imple
 import { EditImplementationPlanComponent } from './component/administration/Implementation-Plan-Adminstration/Edit/edit-implementation-plan/edit-implementation-plan.component';
 import { ViewImplementationPlanComponent } from './component/administration/Implementation-Plan-Adminstration/View/view-implementation-plan/view-implementation-plan.component';
 import { ViewUserProfileComponent } from './component/administration/User-Profile-view-Adminstration/View/view-user-profile/view-user-profile.component';
+import { ViewTaskAdminComponent } from './component/administration/Task-Adminstration/View/view-task-admin/view-task-admin.component';
+import { AddTaskAdminComponent } from './component/administration/Task-Adminstration/Add/add-task-admin/add-task-admin.component';
+import { EditTaskAdminComponent } from './component/administration/Task-Adminstration/Edit/edit-task-admin/edit-task-admin.component';
 
 
 
@@ -191,6 +194,13 @@ const routes: Routes = [
  { path: 'add_extension/:id', component: AddExtensionComponent, canActivate: [AuthGuard] },
  { path: 'edit_extension/:id', component:  EditExtensionFormComponent, canActivate: [AuthGuard] },
  { path: 'extenstion_Detailed_view/:id', component:  TimeExtensionDetailedViewComponent, canActivate: [AuthGuard] },
+
+    //======================================================================================
+  // TASK MANAGEMENT ROUTES
+  //======================================================================================
+  { path: 'task/:id', component: ViewTaskAdminComponent, canActivate: [AuthGuard] },
+  { path: 'add_task/:id', component: AddTaskAdminComponent , canActivate: [AuthGuard] },
+ 
 ];
 
 @NgModule({
